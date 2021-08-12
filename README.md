@@ -1,1 +1,1 @@
-# Tech Blues: Mental Health in Tech
+# Tech Blues: Improving Mental Health in Tech
