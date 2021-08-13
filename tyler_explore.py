@@ -47,7 +47,7 @@ def explore_multivariate(df, target, cat_vars, quant_vars):
     plt.show()
     violin = plot_violin_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
-    pair = sns.pairplot(data=df, vars=quant_vars, hue='survived')
+    pair = sns.pairplot(data=df, vars=quant_vars, hue=target)
     plt.show()
     plot_all_continuous_vars(df, 'survived', quant_vars)
     plt.show()   
@@ -86,15 +86,20 @@ def explore_univariate_quant(df, quant_var):
     # first subplot (top left) us the histogram of quant_var
     p = plt.subplot(1, 2, 1)
     # ***** Need to change the color ******************
-    p = plt.hist(df[quant_var], color='lightseagreen')
+    p = plt.hist(x=df[quant_var], bins= 5, color='lightseagreen')
     # sets the title for the histogram
     p = plt.title(f'{quant_var} Histogram in Mental Health Data')
+    p = plt.xlabel(quant_var)
+    p = plt.ylabel('Count')
 
     # second plot (top right): box plot
     p = plt.subplot(1, 2, 2)
     p = plt.boxplot(df[quant_var])
     # sets the title for the boxplot
     p = plt.title(f'{quant_var} Boxplot in Mental Health Data')
+    p = plt.xlabel(quant_var)
+    p = plt.ylabel('Count')
+    p = plt.tight_layout()
     return p, descriptive_stats
 
 def freq_table(df, cat_var):
