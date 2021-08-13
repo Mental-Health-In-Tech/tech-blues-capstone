@@ -43,13 +43,17 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
 def explore_multivariate(df, target, cat_vars, quant_vars):
     '''
     '''
+    print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
+    print('making violin...')
     violin = plot_violin_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
-    pair = sns.pairplot(data=df, vars=quant_vars, hue=target)
+    print('making pairplot...')
+    pair = sns.pairplot(data=df, vars=quant_vars, hue= target)
     plt.show()
-    plot_all_continuous_vars(df, 'survived', quant_vars)
+    print('plotting continuous vars')
+    plot_all_continuous_vars(df, target, quant_vars)
     plt.show()   
 
 ########################## Univariate #########################################
@@ -60,13 +64,11 @@ def explore_univariate_categorical(df, cat_var):
     This function takes in a pandas DataFrame, and a single categorical variable in the dataset,
     and returns a frequency table and barplot of the categorical variable.
     '''
-
+    
     # makes the frequency table
     frequency_table = freq_table(df, cat_var)
     # sets the figure size for the barplot
     plt.figure(figsize=(2,2))
-    # Spaces the title 20 pixels above chart
-    plt.rcParams['axes.titlepad'] = 20
     # creates the barplot, ***color needs to be changed***
     sns.barplot(x=cat_var, y='Count', data=frequency_table, color='lightseagreen')
     # sets the title of the barplot based on the categorical variable
@@ -85,25 +87,18 @@ def explore_univariate_quant(df, quant_var):
     descriptive_stats = df[quant_var].describe()
     # sets the figure size of the plot entire plot
     plt.figure(figsize=(8,2))
-    # Spaces the title 20 pixels above chart
-    plt.rcParams['axes.titlepad'] = 20
     # first subplot (top left) us the histogram of quant_var
     p = plt.subplot(1, 2, 1)
     # ***** Need to change the color ******************
-    p = plt.hist(x=df[quant_var], bins= 5, color='lightseagreen')
+    p = plt.hist(df[quant_var], color='lightseagreen')
     # sets the title for the histogram
     p = plt.title(f'{quant_var} Histogram in Mental Health Data')
-    p = plt.xlabel(quant_var)
-    p = plt.ylabel('Count')
 
     # second plot (top right): box plot
     p = plt.subplot(1, 2, 2)
     p = plt.boxplot(df[quant_var])
     # sets the title for the boxplot
     p = plt.title(f'{quant_var} Boxplot in Mental Health Data')
-    p = plt.xlabel(quant_var)
-    p = plt.ylabel('Count')
-    p = plt.tight_layout()
     return p, descriptive_stats
 
 def freq_table(df, cat_var):
@@ -156,7 +151,7 @@ def run_chi2(df, cat_var, target):
 
 def plot_cat_by_target(df, target, cat_var):
     '''
-    This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target mean.
+    This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target 
     '''
     p = plt.figure(figsize=(2,2))
     p = sns.barplot(cat_var, target, data=df, alpha=.8, color='lightseagreen')
@@ -168,9 +163,10 @@ def plot_cat_by_target(df, target, cat_var):
 
 def explore_bivariate_quant(df, target, quant_var):
     '''
-    This function takes in a pandas DataFrame, target variable, and single quantitative variable.
-    It prints the name of the quantitative variable, performs a mann_whitney test, and plots
-    a boxen and swarmplot of the target vs quant_var, and prints descriptive stats, and results of the Mann-Whitney test.
+    descriptive stats by each target class. 
+    compare means across 2 target groups 
+    boxenplot of target x quant
+    swarmplot of target x quant
     '''
     print(quant_var, "\n____________________\n")
     descriptive_stats = df.groupby(target)[quant_var].describe()
@@ -185,9 +181,6 @@ def explore_bivariate_quant(df, target, quant_var):
     print("\n____________________\n")
 
 def plot_swarm(df, target, quant_var):
-    '''
-    This function takes in a pandas DataFrame, target variable, and single quantitative variable, and plots a swarm plot of the target vs quant.
-    '''
     average = df[quant_var].mean()
     p = sns.swarmplot(data=df, x=target, y=quant_var, color='lightgray')
     p = plt.title(quant_var)
@@ -195,9 +188,6 @@ def plot_swarm(df, target, quant_var):
     return p
 
 def plot_boxen(df, target, quant_var):
-    '''
-    This function takes in a pandas DataFrame, target variable, and single quantitative variable, and plots a boxenplot of the target vs quant.
-    '''
     average = df[quant_var].mean()
     p = sns.boxenplot(data=df, x=target, y=quant_var, color='lightseagreen')
     p = plt.title(quant_var)
@@ -207,9 +197,6 @@ def plot_boxen(df, target, quant_var):
 # alt_hyp = ‘two-sided’, ‘less’, ‘greater’
 
 def compare_means(df, target, quant_var, alt_hyp='two-sided'):
-    '''
-    This function takes in a pandas DataFrame, target variable, and single quantitative variable. It has an additional argument 'alt_hyp' that is defaulted to 'two-sided' that to looks at whether the difference in variables is statistically significant.
-    '''
     x = df[df[target]==0][quant_var]
     y = df[df[target]==1][quant_var]
     return stats.mannwhitneyu(x, y, use_continuity=True, alternative=alt_hyp)
@@ -220,7 +207,7 @@ def compare_means(df, target, quant_var, alt_hyp='two-sided'):
 def plot_all_continuous_vars(df, target, quant_vars):
     '''
     Melt the dataset to "long-form" representation
-    boxenplot of measurement x value with color representing survived. 
+    boxenplot of measurement x value with color representing target. 
     '''
     my_vars = [item for sublist in [quant_vars, [target]] for item in sublist]
     sns.set(style="whitegrid", palette="muted")
@@ -231,9 +218,6 @@ def plot_all_continuous_vars(df, target, quant_vars):
     plt.show()
 
 def plot_violin_grid_with_color(df, target, cat_vars, quant_vars):
-    '''
-    This function takes in a pandas DataFrame, target variable, list of categorical variables, and list of quantitative variables.  It returns violin plots for each quantitative variable paired with each categorical variable, and the target variable.
-    '''
     cols = len(cat_vars)
     for quant in quant_vars:
         _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
@@ -246,9 +230,6 @@ def plot_violin_grid_with_color(df, target, cat_vars, quant_vars):
         plt.show()
 
 def plot_swarm_grid_with_color(df, target, cat_vars, quant_vars):
-    '''
-    This function takes in a pandas DataFrame, target variable, list of categorical variables, and list of quantitative variables.  It returns swarm plots for each quantitative variable paired with each categorical variable, and the target variable.
-    '''
     cols = len(cat_vars)
     for quant in quant_vars:
         _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
