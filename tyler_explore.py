@@ -151,7 +151,7 @@ def run_chi2(df, cat_var, target):
 
 def plot_cat_by_target(df, target, cat_var):
     '''
-    This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target 
+    This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target mean.
     '''
     p = plt.figure(figsize=(2,2))
     p = sns.barplot(cat_var, target, data=df, alpha=.8, color='lightseagreen')
@@ -163,10 +163,9 @@ def plot_cat_by_target(df, target, cat_var):
 
 def explore_bivariate_quant(df, target, quant_var):
     '''
-    descriptive stats by each target class. 
-    compare means across 2 target groups 
-    boxenplot of target x quant
-    swarmplot of target x quant
+    This function takes in a pandas DataFrame, target variable, and single quantitative variable.
+    It prints the name of the quantitative variable, performs a mann_whitney test, and plots
+    a boxen and swarmplot of the target vs quant_var, and prints descriptive stats, and results of the Mann-Whitney test.
     '''
     print(quant_var, "\n____________________\n")
     descriptive_stats = df.groupby(target)[quant_var].describe()
@@ -181,6 +180,9 @@ def explore_bivariate_quant(df, target, quant_var):
     print("\n____________________\n")
 
 def plot_swarm(df, target, quant_var):
+    '''
+    This function takes in a pandas DataFrame, target variable, and single quantitative variable, and plots a swarm plot of the target vs quant.
+    '''
     average = df[quant_var].mean()
     p = sns.swarmplot(data=df, x=target, y=quant_var, color='lightgray')
     p = plt.title(quant_var)
@@ -188,6 +190,9 @@ def plot_swarm(df, target, quant_var):
     return p
 
 def plot_boxen(df, target, quant_var):
+    '''
+    This function takes in a pandas DataFrame, target variable, and single quantitative variable, and plots a boxenplot of the target vs quant.
+    '''
     average = df[quant_var].mean()
     p = sns.boxenplot(data=df, x=target, y=quant_var, color='lightseagreen')
     p = plt.title(quant_var)
@@ -197,6 +202,9 @@ def plot_boxen(df, target, quant_var):
 # alt_hyp = ‘two-sided’, ‘less’, ‘greater’
 
 def compare_means(df, target, quant_var, alt_hyp='two-sided'):
+    '''
+    This function takes in a pandas DataFrame, target variable, and single quantitative variable. It has an additional argument 'alt_hyp' that is defaulted to 'two-sided' that to looks at whether the difference in variables is statistically significant.
+    '''
     x = df[df[target]==0][quant_var]
     y = df[df[target]==1][quant_var]
     return stats.mannwhitneyu(x, y, use_continuity=True, alternative=alt_hyp)
@@ -218,6 +226,9 @@ def plot_all_continuous_vars(df, target, quant_vars):
     plt.show()
 
 def plot_violin_grid_with_color(df, target, cat_vars, quant_vars):
+    '''
+    This function takes in a pandas DataFrame, target variable, list of categorical variables, and list of quantitative variables.  It returns violin plots for each quantitative variable paired with each categorical variable, and the target variable.
+    '''
     cols = len(cat_vars)
     for quant in quant_vars:
         _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
@@ -230,6 +241,9 @@ def plot_violin_grid_with_color(df, target, cat_vars, quant_vars):
         plt.show()
 
 def plot_swarm_grid_with_color(df, target, cat_vars, quant_vars):
+    '''
+    This function takes in a pandas DataFrame, target variable, list of categorical variables, and list of quantitative variables.  It returns swarm plots for each quantitative variable paired with each categorical variable, and the target variable.
+    '''
     cols = len(cat_vars)
     for quant in quant_vars:
         _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
