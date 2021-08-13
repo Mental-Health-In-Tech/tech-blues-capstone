@@ -31,7 +31,7 @@ def get_survey_data(csv_file, cached=True):
     else:
         
         # If csv file exists or cached == True, read in data from csv.
-        df = pd.read_csv('survey.csv', index_col=0)
+        df = pd.read_csv('survey.csv')
         
     return df
 
@@ -112,7 +112,7 @@ def summarize(df):
         else:
             print(df[col].value_counts(bins=10, sort=False))
     print('----------------------------------------------------')
-    print('Nulls in DataFrae by Column: ')
+    print('Nulls in DataFrame by Column: ')
     print(nulls_by_col(df))
     print('----------------------------------------------------')
     print('Nulls in DataFrame by Rows: ')

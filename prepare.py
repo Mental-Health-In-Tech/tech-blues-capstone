@@ -11,27 +11,46 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
 
-################ Tyler's Section as a Mother Function ########################
+################ Mother Functions ########################
 
-# def tyler_prep(df):
-#     '''
-#     This is Tyler's section of initial prep for the Mental Health and Tech Capstone project. This a combination of the following functions:
-#     - 'to_datetime' that converts the Timestamp column to datetime
-#     - 'drop_age_outliers' that only keeps employees aged 18-85
-#     - 'encode_employee_count_bins' that encodes the already binned 'no_employees' and changes the name to 'company_size'
-    
-#     **** These functions will only work if the column names have already been converted to lowercase ****
-#     '''
-#     # converts 'timestamp' to datetime
-#     df = to_datetime(df)
-#     # drops outliers/typos from 'Age'
-#     df = drop_age_outliers(df)
-#     # encodes 'no_employees' and changes name to 'company_size'
-#     df = encode_no_employee(df)
-    
-#     return df
+def prep_the_strings(df):
+    '''
+    This function preps the mental health data through the use of a number of functions.
+    '''
+    df = convert_lower(df)
+    df = to_datetime(df)
+    df = drop_age_outliers(df)
+    df = drop_columns(df)
+    df = fill_work_nulls(df)
+    df = clean_female(df)
+    df = clean_male(df)
+    df = clean_other(df)
+    df = remove_countries(df)
+    df = target_correction(df)
+    df = employer_status(df)
 
-########################## Tyler's Child Functions ##############################
+    return df
+
+
+def prep_encode(df):
+    '''
+    This function encodes the mental data into numeric values through a number of functions.
+    '''
+    
+    df = encode_yes_no_dont_know(df)
+    df = encode_yes_no_columns(df)
+    df = encode_no_employee(df)
+    df = encoding_no_yes_maybe(df)
+    df = encode_supervisor(df)
+    df = encode_coworkers(df)
+    df = encode_care(df)
+    df = encode_work(df)
+    df = encode_leave(df)
+    df = encode_gender(df)
+    
+    return df
+
+########################## Child Functions ##############################
 
 def to_datetime(df):
     '''
@@ -191,7 +210,6 @@ def encoding_no_yes_maybe(df):
 
     return df
 
-
 def encode_no_employee(df):
     '''
     This function takes in a pandas DataFrame, and encodes the 'no_employee' column, renames the column 'company_size', and returns the updated pandas DataFrame.
@@ -245,42 +263,6 @@ def employer_status(df):
     df['self_employed'] = df['self_employed'].fillna(value = 'No')
     
     return df
-
-def prep_the_strings(df):
-    '''
-    This function preps the mental health data through the use of a number of functions.
-    '''
-    df = convert_lower(df)
-    df = to_datetime(df)
-    df = drop_age_outliers(df)
-    df = drop_columns(df)
-    df = fill_work_nulls(df)
-    df = clean_female(df)
-    df = clean_male(df)
-    df = clean_other(df)
-    df = remove_countries(df)
-    df = target_correction(df)
-    df = employer_status(df)
-
-    return df
-
-
-def prep_encode(df):
-    
-    
-    df = encode_yes_no_dont_know(df)
-    df = encode_yes_no_columns(df)
-    df = encode_no_employee(df)
-    df = encoding_no_yes_maybe(df)
-    df = encode_supervisor(df)
-    df = encode_coworkers(df)
-    df = encode_care(df)
-    df = encode_work(df)
-    df = encode_leave(df)
-    df = encode_gender(df)
-    
-    return df
-
 
 ############################ Split The Data ##################################
 
