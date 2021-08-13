@@ -43,13 +43,21 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
 def explore_multivariate(df, target, cat_vars, quant_vars):
     '''
     '''
+    print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
+    print('making violin...')
     violin = plot_violin_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
+<<<<<<< HEAD
     pair = sns.pairplot(data=df, vars=quant_vars, hue=target)
+=======
+    print('making pairplot...')
+    pair = sns.pairplot(data=df, vars=quant_vars, hue= target)
+>>>>>>> 52658146b1e161b7fda7ef513dbcf062af8d7733
     plt.show()
-    plot_all_continuous_vars(df, 'survived', quant_vars)
+    print('plotting continuous vars')
+    plot_all_continuous_vars(df, target, quant_vars)
     plt.show()   
 
 ########################## Univariate #########################################

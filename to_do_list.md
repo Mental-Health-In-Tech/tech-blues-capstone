@@ -25,15 +25,18 @@
 - [] Univariate exploration and visualizations
 - [] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
-- [X] Create 4 initial hypothoses
-    - H1: The mean rate of treatment is equal across all company sizes
-    - H2: That ease of taking leave has no impact on the rate of seeking treatment
-    - H3: That the mean rate of treatment is equal across all responses for 'benefits'
-    - H4: That the mean rate of treatment is not dependent on 'anonymity'
-    - H5: That the mean rate of treatment is not dependent on 'remote_work'
-    - H6: That the mean rate of treatment is not dependent on 'seek_help'
-    - H7: That the mean rate of treatment is not dependent on 'co-workers'
-    - H8: That the mean rate of treatment is not dependent on 'supervisor'
+- [X] Create minimum 4 initial hypothoses
+    - H1: The mean rate of work intereference is equal across all company sizes.
+    - H2: That ease of taking leave has no impact on the rate of work inteference.
+    - H3: That the mean rate of work interference is equal across all responses for 'benefits'.
+    - H4: That the mean rate of work interference is not dependent on 'anonymity'.
+    - H5: That the mean rate of work interference is not dependent on 'remote_work'.
+    - H6: That the mean rate of work interference is not dependent on 'seek_help'.
+    - H7: That the mean rate of work interference is not dependent on 'co-workers'.
+    - H8: That the mean rate of work interference is not dependent on 'supervisor'.
+    - H9: Family history of mental illness no impact on the rate of work interference.
+    - H10: Understanding your care options for mental healthcare no impact on the rate of work interference.
+    
     
 ## Modeling (Parker)
 - [] Decide on which models to use
