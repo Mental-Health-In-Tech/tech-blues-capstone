@@ -9,5 +9,10 @@
 - [x] Update Linh on my status
 
 ## Not Completed:
-- [] Complete docstrings and comments in explore module
+- [x] Complete docstrings and comments in explore module
 - [] Articles for Parker
+
+## Due Friday, August 13th, 4:00PM
+- [] Compile list of edits needed for exploratory functions
+- [] Assign exploration sections to team members
+- [] 

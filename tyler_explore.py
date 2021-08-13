@@ -43,21 +43,13 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
 def explore_multivariate(df, target, cat_vars, quant_vars):
     '''
     '''
-    print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
-    print('making violin...')
     violin = plot_violin_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
-<<<<<<< HEAD
     pair = sns.pairplot(data=df, vars=quant_vars, hue=target)
-=======
-    print('making pairplot...')
-    pair = sns.pairplot(data=df, vars=quant_vars, hue= target)
->>>>>>> 52658146b1e161b7fda7ef513dbcf062af8d7733
     plt.show()
-    print('plotting continuous vars')
-    plot_all_continuous_vars(df, target, quant_vars)
+    plot_all_continuous_vars(df, 'survived', quant_vars)
     plt.show()   
 
 ########################## Univariate #########################################
@@ -68,11 +60,13 @@ def explore_univariate_categorical(df, cat_var):
     This function takes in a pandas DataFrame, and a single categorical variable in the dataset,
     and returns a frequency table and barplot of the categorical variable.
     '''
-    
+
     # makes the frequency table
     frequency_table = freq_table(df, cat_var)
     # sets the figure size for the barplot
     plt.figure(figsize=(2,2))
+    # Spaces the title 20 pixels above chart
+    plt.rcParams['axes.titlepad'] = 20
     # creates the barplot, ***color needs to be changed***
     sns.barplot(x=cat_var, y='Count', data=frequency_table, color='lightseagreen')
     # sets the title of the barplot based on the categorical variable
@@ -91,6 +85,8 @@ def explore_univariate_quant(df, quant_var):
     descriptive_stats = df[quant_var].describe()
     # sets the figure size of the plot entire plot
     plt.figure(figsize=(8,2))
+    # Spaces the title 20 pixels above chart
+    plt.rcParams['axes.titlepad'] = 20
     # first subplot (top left) us the histogram of quant_var
     p = plt.subplot(1, 2, 1)
     # ***** Need to change the color ******************
