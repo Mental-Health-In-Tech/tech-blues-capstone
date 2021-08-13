@@ -11,8 +11,8 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 
 
 
-|   Feature       | Description    |
-| :------------- | -----------: |
+|   Feature       | Description    | Encoding |
+| :------------- | ----------- | -----------: |
 | timestamp	|  Time survey was submitted | - |
 | age	| Respondent age  | - |
 | gender	| Respondent gender | male:0, female:1, other:2 |
