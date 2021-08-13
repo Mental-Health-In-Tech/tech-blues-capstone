@@ -5,7 +5,7 @@ Hello,
 
 Welcome to the README file for our Mental Health in Tech Capstone Project.
 
-Here, you will be able to find our project-planning though [Trello] (https://trello.com/b/YET89ocX/mental-health-in-tech)
+Here, you will be able to find our project-planning though [Trello](https://trello.com/b/YET89ocX/mental-health-in-tech)
 
 
 
