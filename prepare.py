@@ -138,7 +138,8 @@ def encode_leave(df):
     '''
     This function takes the leave column and endcodes the values to '0', '1', '2', '3'or '4'.
     '''
-    df['leave'] = df['leave'].map({'Very difficult':0,'Somewhat difficult':1,'Don\'t know':2,'Somewhat easy':3,'Very easy':4})
+    df['leave'] = df['leave'].map({"Very difficult":0,"Somewhat difficult":1,"Don't know":2,"Somewhat easy":3,"Very easy":4})
+    return df
 
 def encode_gender(df):
     '''
@@ -152,7 +153,7 @@ def encode_work(df):
     '''
     This function takes the work_interfere column and encodes the values to '0' or '1'.
     '''
-    df['work_interfere'] = df['work_interfere'].map({'Never':0,'Not Applicable':0, 'Rarely':1,'Sometimes':1,'Often':1})
+    df['work_interfere'] = df['work_interfere'].map({'Never':0,'Not applicable':0, 'Rarely':1,'Sometimes':1,'Often':1})
 
     return df
 
@@ -176,7 +177,7 @@ def encode_supervisor(df):
     '''
     This function takes the supervisor column and encodes the values to '0', '1' or '2'.
     '''
-    df['supervisor'] = df['supervisor'].map({'No':0, 'Yes':1, 'Some of Them':2})
+    df['supervisor'] = df['supervisor'].map({'No':0, 'Yes':1, 'Some of them':2})
 
     return df
 
@@ -233,7 +234,19 @@ def convert_lower(df):
     
     return df
 
-def prep_the_data(df):
+def target_correction(df):
+    
+    df['work_interfere'] = df['work_interfere'].fillna(value= 'Not applicable')
+    
+    return df
+
+def employer_status(df):
+    
+    df['self_employed'] = df['self_employed'].fillna(value = 'No')
+    
+    return df
+
+def prep_the_strings(df):
     '''
     This function preps the mental health data through the use of a number of functions.
     '''
@@ -241,8 +254,20 @@ def prep_the_data(df):
     df = to_datetime(df)
     df = drop_age_outliers(df)
     df = drop_columns(df)
-    df = fill_self_employed_nulls(df)
     df = fill_work_nulls(df)
+    df = clean_female(df)
+    df = clean_male(df)
+    df = clean_other(df)
+    df = remove_countries(df)
+    df = target_correction(df)
+    df = employer_status(df)
+
+    return df
+
+
+def prep_encode(df):
+    
+    
     df = encode_yes_no_dont_know(df)
     df = encode_yes_no_columns(df)
     df = encode_no_employee(df)
@@ -252,15 +277,9 @@ def prep_the_data(df):
     df = encode_care(df)
     df = encode_work(df)
     df = encode_leave(df)
-    #df = column_lower(df)
-    df = clean_female(df)
-    df = clean_male(df)
-    df = clean_other(df)
     df = encode_gender(df)
-    df = remove_countries(df)
-
+    
     return df
-
 
 
 ############################ Split The Data ##################################

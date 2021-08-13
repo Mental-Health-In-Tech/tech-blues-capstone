@@ -1,3 +1,5 @@
+![image](https://github.com/lupeluna/README_FILES/blob/main/Tech%20Blues%20Mental%20Health%20in%20Tech.gif)
+
 # Tech Blues: Improving Mental Health in Tech
 
 
