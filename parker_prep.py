@@ -47,3 +47,18 @@ def remove_countries(df):
 def fill_work_nulls(df):
     df.work_interfere.fillna(value = 'Not applicable', inplace = True)
     return df
+
+def encode_gender(df):
+    return df.gender.map({'male':0,'female':1,'other':2})
+
+def encode_work(df):
+    return df.work_interfere.map({'Never':0,'Not Applicable':0, 'Rarely':1,'Sometimes':1,'Often':1})
+
+def encode_care(df):
+    return df.care_options.map({'No':0,'Yes':1,'Not sure':3})
+
+def encode_coworkers(df):
+    return df.coworkers.map({'No':0, 'Yes':1, 'Some of them':2})
+
+def encode_supervisor(df):
+    return df.supervisor.map({'No':0, 'Yes':1, 'Some of Them':2})
