@@ -29,6 +29,6 @@ def get_survey_data(csv_file, cached=True):
     else:
         
         # If csv file exists or cached == True, read in data from csv.
-        df = pd.read_csv('survey.csv', index_col=0)
+        df = pd.read_csv('survey.csv')
         
     return df
