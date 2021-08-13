@@ -13,10 +13,10 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 
 |   Feature       | Description    |
 | :------------- | -----------: |
-| timestamp	|  Time survey was submitted | |
-| age	| Respondent age  | |
+| timestamp	|  Time survey was submitted | - |
+| age	| Respondent age  | - |
 | gender	| Respondent gender | male:0, female:1, other:2 |
-| country	 |  Respondent survey  | |
+| country	 |  Respondent survey  | - |
 | self_employed	 | Whether or not they were self employed | No:0, Yes:1 |
 | family_history	| Whether or not they have a family history of mental illness | No:0, Yes:1 |
 | treatment	 |  Whether or not they have sought treatment  | No:0, Yes:1 |
