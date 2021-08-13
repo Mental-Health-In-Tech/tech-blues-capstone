@@ -61,4 +61,4 @@ def encode_coworkers(df):
     return df.coworkers.map({'No':0, 'Yes':1, 'Some of them':2})
 
 def encode_supervisor(df):
-    return df.supervisor.map({'No':0, 'Yes':1, 'Some of Them':2})
+    return df.supervisor.map({'No':0, 'Yes':1, 'Some of them':2})
