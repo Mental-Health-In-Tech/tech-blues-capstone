@@ -7,8 +7,51 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
+import os
 
 ################ Mother Functions ########################
+
+def initial_prep_strings():
+    '''
+    This function builds on top of the 'prep_the_strings' function, and first looks locally for a csv. If there is no csv, then the 'prep_the_strings' function is ran, and saved locally as csv.
+    '''
+    
+    if os.path.isfile('prep_strings.csv'):
+        
+        # If csv file exists read in data from csv file.
+        strings_df = pd.read_csv('prep_strings.csv', index_col=0)
+        
+    else:
+        
+        # Read fresh data from db into a DataFrame
+        strings_df = prep_the_strings(df)
+        
+        # Cache data
+        df.to_csv('prep_strings.csv')
+        
+        
+    return strings_df
+
+def initial_prep_encode():
+    '''
+    This function builds on top of the 'prep_encode' function, and first looks locally for a csv. If there is no csv, then the 'prep_encode' function is ran, and saved locally as csv.
+    '''
+    
+    if os.path.isfile('prep_encode.csv'):
+        
+        # If csv file exists read in data from csv file.
+        encode_df = pd.read_csv('prep_encode.csv', index_col=0)
+        
+    else:
+        
+        # Read fresh data from db into a DataFrame
+        encode_df = prep_encode(df)
+        
+        # Cache data
+        df.to_csv('prep_encode.csv')
+        
+        
+    return encode_df
 
 def prep_the_strings(df):
     '''
@@ -25,6 +68,8 @@ def prep_the_strings(df):
     df = remove_countries(df)
     df = target_correction(df)
     df = employer_status(df)
+    
+    df.to_csv('prep_strings.csv')
 
     return df
 
@@ -44,6 +89,8 @@ def prep_encode(df):
     df = encode_work(df)
     df = encode_leave(df)
     df = encode_gender(df)
+    
+    df.to_csv('prep_encode.csv')
     
     return df
 
