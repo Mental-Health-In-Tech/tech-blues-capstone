@@ -27,7 +27,7 @@ def initial_prep_strings():
         strings_df = prep_the_strings(df)
         
         # Cache data
-        df.to_csv('prep_strings.csv')
+        strings_df.to_csv('prep_strings.csv')
         
         
     return strings_df
@@ -48,7 +48,7 @@ def initial_prep_encode():
         encode_df = prep_encode(df)
         
         # Cache data
-        df.to_csv('prep_encode.csv')
+        encode_df.to_csv('prep_encode.csv')
         
         
     return encode_df
