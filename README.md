@@ -143,7 +143,7 @@ ___
 #### 3. Data Preparation
 > - Clean our data: XXXX
 > - Store functions needed to prepare the data
-> - Import the prepare/wrangle functions created by using prepare.py or wrangel.py
+> - Import the prepare/wrangle functions created by using prepare.py or wrangle.py
 > - Split the data into train, validate, and test sets
 
 
@@ -158,7 +158,7 @@ ___
 
 #### 5. Modeling & Evaluation
 > - Establish a baseline accuracy 
-> - XXX Fit using TD-IDF Vectorizer
+> - XXX Fit using XXXX
 > - XXX Evaluate decision tree, random forest, logistic regression, KNN, and Naive Bayes models
 > - Emphasize on beating the baseline accuracy, and overall accuracy of the model. 
 
@@ -171,7 +171,6 @@ Here is a quick summary of our results:
 | Decision Tree       | XXXX %      | XXXX %         | ---        |
 | Random Forest       | XXXX %      | XXXX %         | ---        |
 | Logistic Regression | XXXX %      | XXXX %         | ---        |
-| Naive Bayes         | XXXX %      | XXXX %         | ---        |
 | KNN                 | XXXX %      | XXXX %         | ---        |
 
 
@@ -180,9 +179,9 @@ Here is a quick summary of our results:
 
 
 #### 6. Product Delivery
-> - Deliver the findings in a Google Slide presentation.
-> - Have a completed final notebook with comments to explain the walkthrough of our process
-> - Acquire, prepare, and explore .py files completed with docstrings and used in our notebook
+> - Deliver the findings in a Canva Slide presentation.
+> - Have a completed final notebook with markdowns and comments to explain the walkthrough of our process
+> - Acquire, prepare, and wrangle .py files completed with docstrings and used in our notebook
 > - Completed README for project information (summary, pipeline, findings and next steps, etc.)
 
 <br>
@@ -192,7 +191,7 @@ Here is a quick summary of our results:
 ---
 - acquire.py = contains data acquisiton functions used to scrape the data, as well as to bring it in from our local server
 - prepare.py = contains preparation functions to filter and clean our data
-- explore.py = contains explore functions that will generate visualizations 
+- wrangle.py = contains XXXXX 
 
 
 
@@ -201,8 +200,8 @@ Here is a quick summary of our results:
 --- 
 
 
-You will need your own env file with database credentials along with all the necessary files listed below to run our final project notebook. 
 - [X] Read this README.md
-- [ ] Download the aquire.py, prepare.py, and NLP_df.ipynb files into your working directory
-- [ ] Add your own env file to your directory. (user, password, host)
-- [ ] Run the final_nlp.ipynb notebook
+- [ ] Download the survey.csv file into your working directory
+- [ ] Download the aquire.py, prepare.py, wrangle.py and XXXXfinal_notebook.ipynb files into your working directory
+- [ ] Clone this repo
+- [ ] Run the XXXXfinal.ipynb notebook
