@@ -2,12 +2,12 @@
 
 ## Planning (Everyone)
 
-- [] Create a data dictionary in the README.md {Linh}
+- [X] Create a data dictionary in the README.md {Lupe}
 - [] Complete README.md
 
 
 ## Data Acquisition (Linh)
-- [] Create a acquire.py file
+- [X] Create a acquire.py file
 
 ## Data Preparation (Carl)
 
@@ -22,6 +22,7 @@
 - [] combine acquire and prep mother functions into one clean wrangle.py
 
 ## Data Exploration (Tyler)
+- [] split data for exploration
 - [] Univariate exploration and visualizations
 - [] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
@@ -39,6 +40,7 @@
     
     
 ## Modeling (Parker)
+- [] split data for modeling
 - [] Decide on which models to use
 - [] Create models
 
