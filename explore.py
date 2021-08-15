@@ -63,7 +63,7 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-    df = df.drop(columns=(['timestamp', 'country']))
+    df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
     cat_vars = []
     quant_vars = []
     col_list = list(df.columns)
@@ -115,7 +115,7 @@ def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
 def explore_multivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     '''
-    cat_vars, quant_vars = cat_vs_quant(df)
+
     print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
