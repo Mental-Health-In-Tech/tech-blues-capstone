@@ -112,9 +112,10 @@ def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     for quant in quant_vars:
         explore_bivariate_quant(df, target, quant)
 
-def explore_multivariate(df, target, cat_vars, quant_vars):
+def explore_multivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     '''
+    cat_vars, quant_vars = cat_vs_quant(df)
     print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
@@ -272,3 +273,42 @@ def compare_means(df, target, quant_var, alt_hyp='two-sided'):
     x = df[df[target]==0][quant_var]
     y = df[df[target]==1][quant_var]
     return stats.mannwhitneyu(x, y, use_continuity=True, alternative=alt_hyp)
+
+######################### Multivariate #######################################
+################ Can only be done on train ###################################
+
+def plot_all_continuous_vars(df, target, quant_vars):
+    '''
+    Melt the dataset to "long-form" representation
+    boxenplot of measurement x value with color representing target. 
+    '''
+    my_vars = [item for sublist in [quant_vars, [target]] for item in sublist]
+    sns.set(style="whitegrid", palette="muted")
+    melt = df[my_vars].melt(id_vars=target, var_name="measurement")
+    plt.figure(figsize=(8,6))
+    p = sns.boxenplot(x="measurement", y="value", hue=target, data=melt)
+    p.set(yscale="log", xlabel='')    
+    plt.show()
+
+def plot_violin_grid_with_color(df, target, cat_vars, quant_vars):
+    cols = len(cat_vars)
+    for quant in quant_vars:
+        _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
+        for i, cat in enumerate(cat_vars):
+            sns.violinplot(x=cat, y=quant, data=df, split=True, 
+                           ax=ax[i], hue=target, palette="Set2")
+            ax[i].set_xlabel('')
+            ax[i].set_ylabel(quant)
+            ax[i].set_title(cat)
+        plt.show()
+
+def plot_swarm_grid_with_color(df, target, cat_vars, quant_vars):
+    cols = len(cat_vars)
+    for quant in quant_vars:
+        _, ax = plt.subplots(nrows=1, ncols=cols, figsize=(16, 4), sharey=True)
+        for i, cat in enumerate(cat_vars):
+            sns.swarmplot(x=cat, y=quant, data=df, ax=ax[i], hue=target, palette="Set2")
+            ax[i].set_xlabel('')
+            ax[i].set_ylabel(quant)
+            ax[i].set_title(cat)
+        plt.show()
