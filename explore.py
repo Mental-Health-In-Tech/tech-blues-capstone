@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy import stats
 from sklearn.model_selection import train_test_split
 
 
@@ -94,7 +95,7 @@ def explore_univariate(df, cat_vars=[], quant_vars=[]):
         plt.show(p)
         print(descriptive_stats)
         
-def explore_bivariate(df, target, cat_vars, quant_vars):
+def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     This function takes in a pandas DataFrame, a target variable (as a string), a list of categorical variables,
     and a list of quntitative variables. It opperates on top of the 'explore_bivarite_categorical' and 
@@ -104,6 +105,8 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
     - quantitative variables:
         - 
     '''
+    cat_vars, quant_vars = cat_vs_quant(df)
+    
     for cat in cat_vars:
         explore_bivariate_categorical(df, target, cat)
     for quant in quant_vars:
@@ -185,3 +188,87 @@ def freq_table(df, cat_var):
                     )
     )
     return frequency_table
+
+############################ Bivariate Exploration ############################
+
+############## This can be only be done on the train dataset ##################
+
+#### Bivariate Categorical
+        
+def explore_bivariate_categorical(df, target, cat_var):
+    '''
+    This function takes in pandas DataFrame, a target variable (as a string) and a single categorical variable (as a string). It runs a chi-square test for the proportions and creates a barplot, adding a horizontal line of the overall rate of the target. 
+    '''
+    print(cat_var, "\n_____________________\n")
+    ct = pd.crosstab(df[cat_var], df[target], margins=True)
+    chi2_summary, observed, expected = run_chi2(df, cat_var, target)
+    p = plot_cat_by_target(df, target, cat_var)
+
+    print(chi2_summary)
+    print("\nobserved:\n", ct)
+    print("\nexpected:\n", expected)
+    plt.show(p)
+    print("\n_____________________\n")
+
+def run_chi2(df, cat_var, target):
+    '''
+    This function takes in a pandas DataFrame, a single categorical variable (as a string), and a target variable (as a string). It returns a DataFrame that shows the chi2_summary with observed and expected values.
+    '''
+    observed = pd.crosstab(df[cat_var], df[target])
+    chi2, p, degf, expected = stats.chi2_contingency(observed)
+    chi2_summary = pd.DataFrame({'chi2': [chi2], 'p-value': [p], 
+                                 'degrees of freedom': [degf]})
+    expected = pd.DataFrame(expected)
+    return chi2_summary, observed, expected
+
+def plot_cat_by_target(df, target, cat_var):
+    '''
+    This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target 
+    '''
+    p = plt.figure(figsize=(4,4))
+    p = sns.barplot(cat_var, target, data=df, alpha=.8, color='lightseagreen')
+    overall_rate = df[target].mean()
+    p = plt.axhline(overall_rate, ls='--', color='gray')
+    return p
+    
+#### Bivariate Quantitative
+
+def explore_bivariate_quant(df, target, quant_var):
+    '''
+    descriptive stats by each target class. 
+    compare means across 2 target groups 
+    boxenplot of target x quant
+    swarmplot of target x quant
+    '''
+    print(quant_var, "\n____________________\n")
+    descriptive_stats = df.groupby(target)[quant_var].describe()
+    average = df[quant_var].mean()
+    mann_whitney = compare_means(df, target, quant_var)
+    plt.figure(figsize=(4,4))
+    boxen = plot_boxen(df, target, quant_var)
+    swarm = plot_swarm(df, target, quant_var)
+    plt.show()
+    print(descriptive_stats, "\n")
+    print("\nMann-Whitney Test:\n", mann_whitney)
+    print("\n____________________\n")
+
+def plot_swarm(df, target, quant_var):
+    average = df[quant_var].mean()
+    p = sns.swarmplot(data=df, x=target, y=quant_var, color='lightgray')
+    p = plt.title(quant_var)
+    p = plt.axhline(average, ls='--', color='black')
+    return p
+
+def plot_boxen(df, target, quant_var):
+    average = df[quant_var].mean()
+    p = sns.boxenplot(data=df, x=target, y=quant_var, color='lightseagreen')
+    p = plt.title(quant_var)
+    p = plt.axhline(average, ls='--', color='black')
+    return p
+
+# alt_hyp = ‘two-sided’, ‘less’, ‘greater’
+
+def compare_means(df, target, quant_var, alt_hyp='two-sided'):
+    x = df[df[target]==0][quant_var]
+    y = df[df[target]==1][quant_var]
+    return stats.mannwhitneyu(x, y, use_continuity=True, alternative=alt_hyp)
