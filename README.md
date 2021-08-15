@@ -11,6 +11,71 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 
 
 
+## A. Project Overview
+---
+
+### 1. Project Description
+We will be the Classification model to see if we can predict whether or not mental health interferes with workplace of tech employees.  
+<br>
+<br>
+
+
+### 2. Project Deliverables
+ - Acquire, Prepare, and Explore Modules
+ - Final Notebook (a walkthrough with comments)
+ - Presentation Slides 
+ - This README 
+<br>
+<br>
+
+
+## B. Project Summary
+---
+
+### 1. Goals  
+Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict XXXX, with a better accuracy than XXXX% (the baseline accuracy for assuming whether or not the other factors interfere with work.)
+<br>
+<br>
+
+### 2.) Initial Thoughts & Hypothesis
+> - **Hypothesis 1 -** 
+> - (hypothesis between) XXXX - two comparisons go here
+> - alpha = .05
+> - $H_o$: There is no difference XXXX
+> - $H_a$: There is a difference XXXX
+
+> - **Hypothesis 2 -** 
+> - (hypothesis between) XXXX - two comparisons go here
+> - alpha = .05
+> - $H_o$: There is no difference XXXX
+> - $H_a$: There is a difference XXXX
+
+
+We also hope to find XXXX. 
+
+
+### 3.) Findings & Next Steps
+
+We found that our XXX model performed the best with a:
+ - XXXX % score on accuracy
+ - XXXX % score on precision
+ - XXXX % score on recall
+ 
+It does well with XXXX.
+With more time, we should XXXX. 
+
+
+
+## C. Data Context
+--- 
+### 1. About Our Data
+
+Our data was acquired through Kaggle.com. We XXXX. 
+<br>
+
+
+### 2. Data Dictionary
+
 |   Feature       | Description    | Encoding |
 | :------------- | ----------- | -----------: |
 | timestamp	|  Time survey was submitted | - |
@@ -40,6 +105,104 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
 
 
+* Target variable
+
+## D. Pipeline
+--- 
+
+### Pipeline Stages Breakdown
+
+<hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
+
+#### 1. Project Planning
+At a quick glance, the following is what needs to be done: 
 
 
-## 
+##### **Plan ->** Acquire -> Prepare -> Explore -> Model -> Deliver
+- [x] Create README.md with data dictionary, project and business goals
+- [x] Acquire data - XXXX. 
+- [x] XXXX Clean and prepare data for the first iteration through the pipeline, MVP preparation. Create a function to automate the process, store the function in a prepare.py module, and prepare data in Final Report Notebook by importing and using the funtion(s).
+- [x]  Clearly define XXXX hypotheses, set an alpha, run the statistical tests needed, reject or fail to reject the Null Hypothesis, and document findings and takeaways.
+- [x] Establish a baseline accuracy and document well.
+- [x] Train XXXX different models.
+- [x] Evaluate models on train and validate datasets.
+- [x] Choose the model with that performs the best and evaluate that single model on the test dataset.
+- [x] Document conclusions, takeaways, and next steps in the Final Report Notebook.
+
+___
+
+
+
+#### 2. Data Acquisition
+> - Download survey.csv file into.
+> - Save this data locally
+> - Store function, in a module, that are needed to acquire the repository and survey data from Kaggle.
+> - The final function will return a pandas DataFrame for our use
+
+
+#### 3. Data Preparation
+> - Clean our data: XXXX
+> - Store functions needed to prepare the data
+> - Import the prepare/wrangle functions created by using prepare.py or wrangel.py
+> - Split the data into train, validate, and test sets
+
+
+#### 4. Data Exploration
+> - Explore the train data.
+> - XXXX
+> - XXXX 
+> - XXXX
+> - XXXX
+> - Visualize! 
+
+
+#### 5. Modeling & Evaluation
+> - Establish a baseline accuracy 
+> - XXX Fit using TD-IDF Vectorizer
+> - XXX Evaluate decision tree, random forest, logistic regression, KNN, and Naive Bayes models
+> - Emphasize on beating the baseline accuracy, and overall accuracy of the model. 
+
+Here is a quick summary of our results:
+
+
+
+| Model               | Train Score | Validate Score | Test Score |
+|---------------------|-------------|----------------|------------|
+| Decision Tree       | XXXX %      | XXXX %         | ---        |
+| Random Forest       | XXXX %      | XXXX %         | ---        |
+| Logistic Regression | XXXX %      | XXXX %         | ---        |
+| Naive Bayes         | XXXX %      | XXXX %         | ---        |
+| KNN                 | XXXX %      | XXXX %         | ---        |
+
+
+
+
+
+
+#### 6. Product Delivery
+> - Deliver the findings in a Google Slide presentation.
+> - Have a completed final notebook with comments to explain the walkthrough of our process
+> - Acquire, prepare, and explore .py files completed with docstrings and used in our notebook
+> - Completed README for project information (summary, pipeline, findings and next steps, etc.)
+
+<br>
+<br>
+
+## E.) Modules
+---
+- acquire.py = contains data acquisiton functions used to scrape the data, as well as to bring it in from our local server
+- prepare.py = contains preparation functions to filter and clean our data
+- explore.py = contains explore functions that will generate visualizations 
+
+
+
+
+## F. Project Reproduction
+--- 
+
+
+You will need your own env file with database credentials along with all the necessary files listed below to run our final project notebook. 
+- [X] Read this README.md
+- [ ] Download the aquire.py, prepare.py, and NLP_df.ipynb files into your working directory
+- [ ] Add your own env file to your directory. (user, password, host)
+- [ ] Run the final_nlp.ipynb notebook
