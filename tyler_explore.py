@@ -69,15 +69,7 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-<<<<<<< HEAD
     new_df = df.drop(columns=('country'))
-=======
-<<<<<<< HEAD
-    #df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
-=======
-    new_df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
->>>>>>> da1a058ea39b3c11365fb27204ca34f1d7176e90
->>>>>>> fdd49eeb0b788df7eac25bdf257ab729d5f0c513
     cat_vars = []
     quant_vars = []
     col_list = list(new_df.columns)
@@ -338,6 +330,8 @@ def explore_bivariate_2nd(df, target, cat_vars=[], quant_vars=[]):
         - 
     - quantitative variables:
         - 
+        
+        
     '''
     
     cat_vars = list(df.columns)
