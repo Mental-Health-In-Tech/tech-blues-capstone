@@ -53,6 +53,7 @@
 - [] Choose color scheme
 - [] Table of Contents
     - Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
+    - Introduction, Executive Summary, and Conclusion
 - [] Introduction (Name team members)
 - [] Executive Summary
 - [] Set up Initial conflict
