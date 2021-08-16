@@ -63,7 +63,7 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-    df = df.drop(columns=(['timestamp', 'country', 'work_intefere']))
+    df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
     cat_vars = []
     quant_vars = []
     col_list = list(df.columns)
