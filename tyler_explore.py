@@ -25,7 +25,7 @@ def explore_univariate(df, cat_vars, quant_vars):
         plt.show(p)
         print(descriptive_stats)
         
-def explore_bivariate(df, target, cat_vars, quant_vars):
+def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     This function takes in a pandas DataFrame, a target variable (as a string), a list of categorical variables,
     and a list of quntitative variables. It opperates on top of the 'explore_bivarite_categorical' and 
@@ -35,10 +35,13 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
     - quantitative variables:
         - 
     '''
+    
+    cat_vars, quant_vars = cat_vs_quant(df)
     for cat in cat_vars:
         explore_bivariate_categorical(df, target, cat)
     for quant in quant_vars:
         explore_bivariate_quant(df, target, quant)
+    
 
 def explore_multivariate(df, target, cat_vars, quant_vars):
     '''
@@ -54,7 +57,24 @@ def explore_multivariate(df, target, cat_vars, quant_vars):
     plt.show()
     print('plotting continuous vars')
     plot_all_continuous_vars(df, target, quant_vars)
-    plt.show()   
+    plt.show() 
+    
+def cat_vs_quant(df):
+    '''
+    This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
+    '''
+    df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
+    cat_vars = []
+    quant_vars = []
+    col_list = list(df.columns)
+    
+    for col in col_list:
+        if df[col].nunique()<=6:
+            cat_vars.append(col)
+        else:
+            quant_vars.append(col)
+    
+    return cat_vars, quant_vars
 
 ########################## Univariate #########################################
 ########### Can be done on entire dataset, or train ###########################
@@ -144,9 +164,9 @@ def run_chi2(df, cat_var, target):
     '''
     observed = pd.crosstab(df[cat_var], df[target])
     chi2, p, degf, expected = stats.chi2_contingency(observed)
-    chi2_summary = pd.DataFrame({'chi2': [chi2], 'p-value': [p], 
+    chi2_summary = pd.DataFrame({'variable': [cat_var], 'chi2': [chi2], 'p-value': [p], 
                                  'degrees of freedom': [degf]})
-    expected = pd.DataFrame(expected)
+   
     return chi2_summary, observed, expected
 
 def plot_cat_by_target(df, target, cat_var):
@@ -158,7 +178,24 @@ def plot_cat_by_target(df, target, cat_var):
     overall_rate = df[target].mean()
     p = plt.axhline(overall_rate, ls='--', color='gray')
     return p
-    
+
+def bivariate_metrics(df, target, cat_vars=[]):
+    cat_vars, quant_vars = cat_vs_quant(df)
+    metric_df = pd.DataFrame({'variable': [], 'chi2': [], 'p-value': [], 
+                                 'degrees of freedom': []})  
+    for cat in cat_vars:
+        observed = pd.crosstab(df[cat], df[target])
+        chi2, p, degf, expected = stats.chi2_contingency(observed)
+        chi2 = chi2.round().astype(int)
+        p = p.round(4)
+        chi2_summary = pd.DataFrame({'variable': [cat], 'chi2': [chi2], 'p-value': [p], 
+                                 'degrees of freedom': [degf]})
+        chi2_summary['degrees of freedom'] = chi2_summary['degrees of freedom'].astype(int)
+        metric_df = metric_df.append(chi2_summary)
+        metric_df = metric_df.sort_values('p-value')
+   
+      
+    return metric_df
 #### Bivariate Quantitative
 
 def explore_bivariate_quant(df, target, quant_var):
