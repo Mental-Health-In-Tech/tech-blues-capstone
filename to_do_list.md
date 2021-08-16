@@ -18,12 +18,12 @@
 
 # Data Wrangling (Linh)
 - [X] Assign to {Linh}
-- [] import acquire.py and prepare.py
-- [] combine acquire and prep mother functions into one clean wrangle.py
+- [X] import acquire.py and prepare.py
+- [X] combine acquire and prep mother functions into one clean wrangle.py
 
 ## Data Exploration (Tyler)
-- [] split data for exploration
-- [] Univariate exploration and visualizations
+- [X] split data for exploration
+- [X] Univariate exploration and visualizations
 - [] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
 - [X] Create minimum 4 initial hypothoses
@@ -50,6 +50,7 @@
 - [] Use feature importance
 
 ## Presentation (Lupe)
+- [] Choose color scheme
 - [] Introduction
 - [] Initial conflict
 - [] Why it matters?
