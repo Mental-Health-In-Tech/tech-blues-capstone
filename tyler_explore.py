@@ -10,6 +10,20 @@ from scipy import stats
 
 ######################## Mother Functions ######################################
 
+def mental_health_univariate(df):
+    '''
+    This function takes in a pandas DataFrame, and performs univariate analysis for each variable.
+    '''
+    cat_vars, quant_vars = cat_vs_quant(df)
+    
+    for cat in cat_vars:
+        sns.countplot(df[cat])
+        plt.show()
+        
+    for quant in quant_vars:
+        sns.histplot(data=df, x=quant)
+        plt.show()
+    
 
 
 def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
@@ -32,8 +46,6 @@ def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     print(mets)
     return mets
     
-
-
     
 def cat_vs_quant(df):
     '''
