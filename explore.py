@@ -210,6 +210,7 @@ def explore_bivariate_categorical(df, target, cat_var):
     print("\nexpected:\n", expected)
     plt.show(p)
     print("\n_____________________\n")
+    
 
 def run_chi2(df, cat_var, target):
     '''
