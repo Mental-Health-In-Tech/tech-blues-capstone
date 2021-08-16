@@ -10,13 +10,15 @@ from scipy import stats
 
 ######################## Mother Functions ######################################
 
-def explore_univariate(df, cat_vars, quant_vars):
+
+def explore_univariate(df, cat_vars=[], quant_vars=[]):
     '''
     This function takes in a pandas DataFrame, a list of categorical variables, and a list of quantitative variables.
     It uses the 'explore_univariate_categorical' and 'explore_univariate_quantitative' functions to plot:
     - frequency tables and barplots for categorical data,
     - descriptive stats, histograms, and boxplots for quantitative variables.
     '''
+    cat_vars, quant_vars = cat_vs_quant(df)
     for cat in cat_vars:
         explore_univariate_categorical(df, cat)
         print('_________________________________________________________________')
@@ -67,7 +69,7 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-    new_df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
+    new_df = df.drop(columns=('country'))
     cat_vars = []
     quant_vars = []
     col_list = list(new_df.columns)
@@ -82,25 +84,37 @@ def cat_vs_quant(df):
 
 ########################## Univariate #########################################
 ########### Can be done on entire dataset, or train ###########################
-        
+
 def explore_univariate_categorical(df, cat_var):
     '''
-    This function takes in a pandas DataFrame, and a single categorical variable in the dataset,
-    and returns a frequency table and barplot of the categorical variable.
+    takes in a dataframe and a categorical variable and returns
+    a frequency table and barplot of the frequencies. 
     '''
-    
-    # makes the frequency table
     frequency_table = freq_table(df, cat_var)
-    # sets the figure size for the barplot
-    plt.figure(figsize=(4,4))
-    # creates the barplot, ***color needs to be changed***
-    sns.barplot(x=cat_var, y='Count', data=frequency_table, color='lightseagreen')
-    # sets the title of the barplot based on the categorical variable
-    plt.title(f'{cat_var} Bar Plot in Mental Heath Data')
-    # shows the barplot
+    plt.figure(figsize=(2,2))
+    sns.barplot(x=frequency_table.index, y='Count', data=frequency_table, color='lightseagreen')
+    plt.title(cat_var)
     plt.show()
-    # prints the frequency table
     print(frequency_table)
+
+# def explore_univariate_categorical(df, cat):
+#     '''
+#     This function takes in a pandas DataFrame, and a single categorical variable in the dataset,
+#     and returns a frequency table and barplot of the categorical variable.
+#     '''
+    
+#     # makes the frequency table
+#     frequency_table = freq_table(df, cat)
+#     # sets the figure size for the barplot
+#     plt.figure(figsize=(4,4))
+#     # creates the barplot, ***color needs to be changed***
+#     sns.barplot(x=cat, y='Count', data=frequency_table, color='lightseagreen')
+#     # sets the title of the barplot based on the categorical variable
+#     plt.title(f'{cat} Bar Plot in Mental Heath Data')
+#     # shows the barplot
+#     plt.show()
+#     # prints the frequency table
+#     print(frequency_table)
     
 def explore_univariate_quant(df, quant_var):
     '''
@@ -125,21 +139,41 @@ def explore_univariate_quant(df, quant_var):
     p = plt.title(f'{quant_var} Boxplot in Mental Health Data')
     return p, descriptive_stats
 
-def freq_table(df, cat_var):
+def freq_table(train, cat_var):
     '''
-    This function takes in a pandas DataFrame, along with a single categorical variable.
-    It computes the frequency count and percent split
+    for a given categorical variable, compute the frequency count and percent split
     and return a dataframe of those values along with the different classes. 
     '''
-    class_labels = list(df[cat_var].unique())
+    class_labels = list(train[cat_var].value_counts(sort=False))
 
     frequency_table = (
-        pd.DataFrame({cat_var: class_labels,
-                      'Count': df[cat_var].value_counts(normalize=False), 
-                      'Percent': round(df[cat_var].value_counts(normalize=True)*100,2)}
+        pd.DataFrame({
+            cat_var: class_labels,
+                      'Count': train[cat_var].value_counts(normalize=False), 
+                      'Percent': round(train[cat_var].value_counts(normalize=True)*100,2)}
                     )
     )
+    
+    
     return frequency_table
+
+def explore_univariate_zillow(df, figsize = (18,3)):
+    '''
+    This function is for exploring. Takes in a dataframe with variables you would like to see the box plot of.
+    Input the dataframe (either fully, or using .drop) with ONLY the columns you want to see plotted.
+    Optional arguement figsize. Default it's small.    
+    '''
+
+    for col in list(df):
+        plt.figure(figsize=figsize)
+        plt.subplot(121)
+        sns.boxplot(y = col, data = df)
+        plt.title(f'Box Plot of {col}')
+
+        plt.subplot(122)
+        sns.histplot(data = df, x = col, kde=True)
+        plt.title(f'Distribution of {col}')
+        plt.show()
 
 ############################ Bivariate Exploration ############################
 
