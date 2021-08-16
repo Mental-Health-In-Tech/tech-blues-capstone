@@ -2,12 +2,12 @@
 
 ## Planning (Everyone)
 
-- [] Create a data dictionary in the README.md {Linh}
+- [X] Create a data dictionary in the README.md {Lupe}
 - [] Complete README.md
 
 
 ## Data Acquisition (Linh)
-- [] Create a acquire.py file
+- [X] Create a acquire.py file
 
 ## Data Preparation (Carl)
 
@@ -18,16 +18,17 @@
 
 # Data Wrangling (Linh)
 - [X] Assign to {Linh}
-- [] import acquire.py and prepare.py
-- [] combine acquire and prep mother functions into one clean wrangle.py
+- [X] import acquire.py and prepare.py
+- [X] combine acquire and prep mother functions into one clean wrangle.py
 
 ## Data Exploration (Tyler)
-- [] Univariate exploration and visualizations
+- [X] split data for exploration
+- [X] Univariate exploration and visualizations
 - [] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
-- [X] Create minimum 4 initial hypothoses
-    - H1: The mean rate of work intereference is equal across all company sizes.
-    - H2: That ease of taking leave has no impact on the rate of work inteference.
+- [X] Create minimum 4 initial hypotheses
+    - H1: The mean rate of work interference is equal across all company sizes.
+    - H2: That ease of taking leave has no impact on the rate of work interference.
     - H3: That the mean rate of work interference is equal across all responses for 'benefits'.
     - H4: That the mean rate of work interference is not dependent on 'anonymity'.
     - H5: That the mean rate of work interference is not dependent on 'remote_work'.
@@ -39,6 +40,7 @@
     
     
 ## Modeling (Parker)
+- [] split data for modeling
 - [] Decide on which models to use
 - [] Create models
 
@@ -48,11 +50,21 @@
 - [] Use feature importance
 
 ## Presentation (Lupe)
-- [] Introduction
-- [] Initial conflict
+- [] Choose color scheme
+- [] Table of Contents
+    - [] Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
+    - [] Introduction, Executive Summary, and Conclusion
+- [] Introduction (Name team members)
+- [] Executive Summary
+- [] Set up Initial conflict
+    - [] Acquire
+    - [] Prepare
 - [] Why it matters?
+    - [] Exploration
 - [] Resolution
+    - [] Modeling and Evaluate
 - [] Conclusion
+    - [] Recommendation
 
 ## Conclusions & Next Steps
 - [] Recommended model

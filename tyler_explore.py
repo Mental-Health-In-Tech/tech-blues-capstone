@@ -25,7 +25,7 @@ def explore_univariate(df, cat_vars, quant_vars):
         plt.show(p)
         print(descriptive_stats)
         
-def explore_bivariate(df, target, cat_vars, quant_vars):
+def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     This function takes in a pandas DataFrame, a target variable (as a string), a list of categorical variables,
     and a list of quntitative variables. It opperates on top of the 'explore_bivarite_categorical' and 
@@ -35,10 +35,16 @@ def explore_bivariate(df, target, cat_vars, quant_vars):
     - quantitative variables:
         - 
     '''
+    
+    cat_vars, quant_vars = cat_vs_quant(df)
     for cat in cat_vars:
         explore_bivariate_categorical(df, target, cat)
     for quant in quant_vars:
         explore_bivariate_quant(df, target, quant)
+    mets = bivariate_metrics(df, target, cat_vars=[]) 
+    print(mets)
+    return mets
+    
 
 def explore_multivariate(df, target, cat_vars, quant_vars):
     '''
@@ -54,7 +60,24 @@ def explore_multivariate(df, target, cat_vars, quant_vars):
     plt.show()
     print('plotting continuous vars')
     plot_all_continuous_vars(df, target, quant_vars)
-    plt.show()   
+    plt.show() 
+    
+def cat_vs_quant(df):
+    '''
+    This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
+    '''
+    df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
+    cat_vars = []
+    quant_vars = []
+    col_list = list(df.columns)
+    
+    for col in col_list:
+        if df[col].nunique()<=6:
+            cat_vars.append(col)
+        else:
+            quant_vars.append(col)
+    
+    return cat_vars, quant_vars
 
 ########################## Univariate #########################################
 ########### Can be done on entire dataset, or train ###########################
@@ -68,7 +91,7 @@ def explore_univariate_categorical(df, cat_var):
     # makes the frequency table
     frequency_table = freq_table(df, cat_var)
     # sets the figure size for the barplot
-    plt.figure(figsize=(2,2))
+    plt.figure(figsize=(4,4))
     # creates the barplot, ***color needs to be changed***
     sns.barplot(x=cat_var, y='Count', data=frequency_table, color='lightseagreen')
     # sets the title of the barplot based on the categorical variable
@@ -127,14 +150,14 @@ def explore_bivariate_categorical(df, target, cat_var):
     '''
     This function takes in pandas DataFrame, a target variable (as a string) and a single categorical variable (as a string). It runs a chi-square test for the proportions and creates a barplot, adding a horizontal line of the overall rate of the target. 
     '''
-    print(cat_var, "\n_____________________\n")
+#     print(cat_var)
     ct = pd.crosstab(df[cat_var], df[target], margins=True)
     chi2_summary, observed, expected = run_chi2(df, cat_var, target)
     p = plot_cat_by_target(df, target, cat_var)
 
-    print(chi2_summary)
-    print("\nobserved:\n", ct)
-    print("\nexpected:\n", expected)
+#     print(chi2_summary)
+#     print("\nobserved:\n", ct)
+#     print("\nexpected:\n", expected)
     plt.show(p)
     print("\n_____________________\n")
 
@@ -144,21 +167,40 @@ def run_chi2(df, cat_var, target):
     '''
     observed = pd.crosstab(df[cat_var], df[target])
     chi2, p, degf, expected = stats.chi2_contingency(observed)
-    chi2_summary = pd.DataFrame({'chi2': [chi2], 'p-value': [p], 
+    chi2_summary = pd.DataFrame({'variable': [cat_var], 'chi2': [chi2], 'p-value': [p], 
                                  'degrees of freedom': [degf]})
-    expected = pd.DataFrame(expected)
+   
     return chi2_summary, observed, expected
 
 def plot_cat_by_target(df, target, cat_var):
     '''
     This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target 
     '''
-    p = plt.figure(figsize=(2,2))
+    p = plt.figure(figsize=(4,4))
+    p = plt.rcParams.update({'font.size': 16})
+    p = plt.title(f'{cat_var} & work_interfere')
     p = sns.barplot(cat_var, target, data=df, alpha=.8, color='lightseagreen')
     overall_rate = df[target].mean()
     p = plt.axhline(overall_rate, ls='--', color='gray')
     return p
-    
+
+def bivariate_metrics(df, target, cat_vars=[]):
+    cat_vars, quant_vars = cat_vs_quant(df)
+    metric_df = pd.DataFrame({'variable': [], 'chi2': [], 'p-value': [], 
+                                 'degrees of freedom': []})  
+    for cat in cat_vars:
+        observed = pd.crosstab(df[cat], df[target])
+        chi2, p, degf, expected = stats.chi2_contingency(observed)
+        chi2 = chi2.round().astype(int)
+        p = p.round(4)
+        chi2_summary = pd.DataFrame({'variable': [cat], 'chi2': [chi2], 'p-value': [p], 
+                                 'degrees of freedom': [degf]})
+        chi2_summary['degrees of freedom'] = chi2_summary['degrees of freedom'].astype(int)
+        metric_df = metric_df.append(chi2_summary)
+        metric_df = metric_df.sort_values('p-value').reset_index(drop=True)
+   
+      
+    return metric_df
 #### Bivariate Quantitative
 
 def explore_bivariate_quant(df, target, quant_var):
@@ -168,7 +210,7 @@ def explore_bivariate_quant(df, target, quant_var):
     boxenplot of target x quant
     swarmplot of target x quant
     '''
-    print(quant_var, "\n____________________\n")
+    print(quant_var)
     descriptive_stats = df.groupby(target)[quant_var].describe()
     average = df[quant_var].mean()
     mann_whitney = compare_means(df, target, quant_var)
