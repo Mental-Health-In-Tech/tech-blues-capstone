@@ -144,7 +144,7 @@ def freq_table(train, cat_var):
     for a given categorical variable, compute the frequency count and percent split
     and return a dataframe of those values along with the different classes. 
     '''
-    class_labels = list(train[cat_var].value_counts(sort=False))
+    class_labels = list(train[cat_var].unique().sort())
 
     frequency_table = (
         pd.DataFrame({
@@ -362,3 +362,14 @@ def bivariate_metrics_2nd(df, target, cat_vars=[]):
    
       
     return metric_df
+
+def one_hot(encoded_df):
+    '''
+    One-hot encoding all variables.
+    '''
+    
+    selected_cols_df = encoded_df[['work_interfere', 'company_size', 'leave', 'care_options', 'benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_health_consequence', 'phys_health_consequence', 'coworkers', 'supervisor', 'mental_health_interview', 'phys_health_interview', 'mental_vs_physical']]
+    
+    encoded_dummies = pd.get_dummies(data=selected_cols_df, columns = ['company_size', 'leave', 'care_options', 'benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_health_consequence', 'phys_health_consequence', 'coworkers', 'supervisor', 'mental_health_interview', 'phys_health_interview', 'mental_vs_physical'])
+    
+    return encoded_dummies
