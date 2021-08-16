@@ -91,7 +91,7 @@ def explore_univariate_categorical(df, cat_var):
     # makes the frequency table
     frequency_table = freq_table(df, cat_var)
     # sets the figure size for the barplot
-    plt.figure(figsize=(2,2))
+    plt.figure(figsize=(4,4))
     # creates the barplot, ***color needs to be changed***
     sns.barplot(x=cat_var, y='Count', data=frequency_table, color='lightseagreen')
     # sets the title of the barplot based on the categorical variable
@@ -150,7 +150,7 @@ def explore_bivariate_categorical(df, target, cat_var):
     '''
     This function takes in pandas DataFrame, a target variable (as a string) and a single categorical variable (as a string). It runs a chi-square test for the proportions and creates a barplot, adding a horizontal line of the overall rate of the target. 
     '''
-    print(cat_var)
+#     print(cat_var)
     ct = pd.crosstab(df[cat_var], df[target], margins=True)
     chi2_summary, observed, expected = run_chi2(df, cat_var, target)
     p = plot_cat_by_target(df, target, cat_var)
@@ -176,7 +176,9 @@ def plot_cat_by_target(df, target, cat_var):
     '''
     This function takes in a pandas DataFrame, a single target variable (as a string), and a single categorical variable (as a string). It plots a barplot of the categorical variable, along with line showing the target 
     '''
-    p = plt.figure(figsize=(2,2))
+    p = plt.figure(figsize=(4,4))
+    p = plt.rcParams.update({'font.size': 16})
+    p = plt.title(f'{cat_var} & work_interfere')
     p = sns.barplot(cat_var, target, data=df, alpha=.8, color='lightseagreen')
     overall_rate = df[target].mean()
     p = plt.axhline(overall_rate, ls='--', color='gray')
