@@ -26,9 +26,9 @@
 - [X] Univariate exploration and visualizations
 - [] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
-- [X] Create minimum 4 initial hypothoses
-    - H1: The mean rate of work intereference is equal across all company sizes.
-    - H2: That ease of taking leave has no impact on the rate of work inteference.
+- [X] Create minimum 4 initial hypotheses
+    - H1: The mean rate of work interference is equal across all company sizes.
+    - H2: That ease of taking leave has no impact on the rate of work interference.
     - H3: That the mean rate of work interference is equal across all responses for 'benefits'.
     - H4: That the mean rate of work interference is not dependent on 'anonymity'.
     - H5: That the mean rate of work interference is not dependent on 'remote_work'.
@@ -52,8 +52,8 @@
 ## Presentation (Lupe)
 - [] Choose color scheme
 - [] Table of Contents
-    - Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
-    - Introduction, Executive Summary, and Conclusion
+    - [] Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
+    - [] Introduction, Executive Summary, and Conclusion
 - [] Introduction (Name team members)
 - [] Executive Summary
 - [] Set up Initial conflict
