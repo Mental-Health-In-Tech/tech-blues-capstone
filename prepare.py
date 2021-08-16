@@ -233,7 +233,7 @@ def encode_yes_no_columns(df):
 
 def encode_yes_no_dont_know(df):
     '''
-    TThis function takes the columns defined in 'col_list' down below and encodes to '0', '1' or '2'.
+    This function takes the columns defined in 'col_list' down below and encodes to '0', '1' or '2'.
     '''
     col_list= ['benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_vs_physical']
     for col in col_list:
@@ -253,13 +253,17 @@ def convert_lower(df):
     return df
 
 def target_correction(df):
-    
+    '''
+    This function fills in the nulls for the work_interfere column with 'Not applicable'.
+    '''
     df['work_interfere'] = df['work_interfere'].fillna(value= 'Not applicable')
     
     return df
 
 def employer_status(df):
-    
+    '''
+    This function fills in the nulls for the self_employed column with 'No'.
+    '''
     df['self_employed'] = df['self_employed'].fillna(value = 'No')
     
     return df
