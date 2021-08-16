@@ -46,9 +46,10 @@ def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
     return mets
     
 
-def explore_multivariate(df, target, cat_vars, quant_vars):
+def explore_multivariate(df, target, cat_vars=[], quant_vars=[]):
     '''
     '''
+    
     print('printing swarmgrid...')
     plot_swarm_grid_with_color(df, target, cat_vars, quant_vars)
     plt.show()
@@ -66,7 +67,7 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-    df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
+    df = df.drop(columns=(['timestamp', 'country']))
     cat_vars = []
     quant_vars = []
     col_list = list(df.columns)
@@ -191,8 +192,10 @@ def bivariate_metrics(df, target, cat_vars=[]):
     for cat in cat_vars:
         observed = pd.crosstab(df[cat], df[target])
         chi2, p, degf, expected = stats.chi2_contingency(observed)
-        chi2 = chi2.round().astype(int)
-        p = p.round(4)
+        chi2 = float('{:.2f}'.format(chi2))
+#         chi2 = chi2.round().astype(int)
+#         p = p.round(4)
+        p = float('{:.4f}'.format(p))
         chi2_summary = pd.DataFrame({'variable': [cat], 'chi2': [chi2], 'p-value': [p], 
                                  'degrees of freedom': [degf]})
         chi2_summary['degrees of freedom'] = chi2_summary['degrees of freedom'].astype(int)
