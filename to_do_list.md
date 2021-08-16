@@ -51,11 +51,19 @@
 
 ## Presentation (Lupe)
 - [] Choose color scheme
-- [] Introduction
-- [] Initial conflict
+- [] Table of Contents
+    - Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
+- [] Introduction (Name team members)
+- [] Executive Summary
+- [] Set up Initial conflict
+    - [] Acquire
+    - [] Prepare
 - [] Why it matters?
+    - [] Exploration
 - [] Resolution
+    - [] Modeling and Evaluate
 - [] Conclusion
+    - [] Recommendation
 
 ## Conclusions & Next Steps
 - [] Recommended model
