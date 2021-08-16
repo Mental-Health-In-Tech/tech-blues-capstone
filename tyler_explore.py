@@ -285,3 +285,44 @@ def plot_swarm_grid_with_color(df, target, cat_vars, quant_vars):
             ax[i].set_title(cat)
         plt.show()
 
+###################### 2nd Iteration Functions ##################################################
+
+def explore_bivariate_2nd(df, target, cat_vars=[], quant_vars=[]):
+    '''
+    This function takes in a pandas DataFrame, a target variable (as a string), a list of categorical variables,
+    and a list of quntitative variables. It opperates on top of the 'explore_bivarite_categorical' and 
+    'explore_bivariate_quantitative' functions to return:
+    - categorical variables:
+        - 
+    - quantitative variables:
+        - 
+    '''
+    
+    cat_vars = list(df.columns)
+    for cat in cat_vars:
+        explore_bivariate_categorical(df, target, cat)
+    for quant in quant_vars:
+        explore_bivariate_quant(df, target, quant)
+    mets = bivariate_metrics_2nd(df, target, cat_vars=[]) 
+    print(mets)
+    return mets
+    
+def bivariate_metrics_2nd(df, target, cat_vars=[]):
+    cat_vars = list(df.columns)
+    metric_df = pd.DataFrame({'variable': [], 'chi2': [], 'p-value': [], 
+                                 'degrees of freedom': []})  
+    for cat in cat_vars:
+        observed = pd.crosstab(df[cat], df[target])
+        chi2, p, degf, expected = stats.chi2_contingency(observed)
+        chi2 = float('{:.2f}'.format(chi2))
+#         chi2 = chi2.round().astype(int)
+#         p = p.round(4)
+        p = float('{:.4f}'.format(p))
+        chi2_summary = pd.DataFrame({'variable': [cat], 'chi2': [chi2], 'p-value': [p], 
+                                 'degrees of freedom': [degf]})
+        chi2_summary['degrees of freedom'] = chi2_summary['degrees of freedom'].astype(int)
+        metric_df = metric_df.append(chi2_summary)
+        metric_df = metric_df.sort_values('p-value').reset_index(drop=True)
+   
+      
+    return metric_df
