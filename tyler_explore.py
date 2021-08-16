@@ -67,10 +67,10 @@ def cat_vs_quant(df):
     '''
     This function takes in a pandas DataFrame, and returns lists of categorical and quantitative variables.
     '''
-    df = df.drop(columns=(['timestamp', 'country']))
+    new_df = df.drop(columns=(['timestamp', 'country', 'work_interfere']))
     cat_vars = []
     quant_vars = []
-    col_list = list(df.columns)
+    col_list = list(new_df.columns)
     
     for col in col_list:
         if df[col].nunique()<=6:
