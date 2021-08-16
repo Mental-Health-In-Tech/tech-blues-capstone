@@ -41,6 +41,9 @@ def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
         explore_bivariate_categorical(df, target, cat)
     for quant in quant_vars:
         explore_bivariate_quant(df, target, quant)
+    mets = bivariate_metrics(df, target, cat_vars=[]) 
+    print(mets)
+    return mets
     
 
 def explore_multivariate(df, target, cat_vars, quant_vars):
@@ -147,14 +150,14 @@ def explore_bivariate_categorical(df, target, cat_var):
     '''
     This function takes in pandas DataFrame, a target variable (as a string) and a single categorical variable (as a string). It runs a chi-square test for the proportions and creates a barplot, adding a horizontal line of the overall rate of the target. 
     '''
-    print(cat_var, "\n_____________________\n")
+    print(cat_var)
     ct = pd.crosstab(df[cat_var], df[target], margins=True)
     chi2_summary, observed, expected = run_chi2(df, cat_var, target)
     p = plot_cat_by_target(df, target, cat_var)
 
-    print(chi2_summary)
-    print("\nobserved:\n", ct)
-    print("\nexpected:\n", expected)
+#     print(chi2_summary)
+#     print("\nobserved:\n", ct)
+#     print("\nexpected:\n", expected)
     plt.show(p)
     print("\n_____________________\n")
 
@@ -192,7 +195,7 @@ def bivariate_metrics(df, target, cat_vars=[]):
                                  'degrees of freedom': [degf]})
         chi2_summary['degrees of freedom'] = chi2_summary['degrees of freedom'].astype(int)
         metric_df = metric_df.append(chi2_summary)
-        metric_df = metric_df.sort_values('p-value')
+        metric_df = metric_df.sort_values('p-value').reset_index(drop=True)
    
       
     return metric_df
@@ -205,7 +208,7 @@ def explore_bivariate_quant(df, target, quant_var):
     boxenplot of target x quant
     swarmplot of target x quant
     '''
-    print(quant_var, "\n____________________\n")
+    print(quant_var)
     descriptive_stats = df.groupby(target)[quant_var].describe()
     average = df[quant_var].mean()
     mann_whitney = compare_means(df, target, quant_var)
