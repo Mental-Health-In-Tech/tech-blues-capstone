@@ -279,7 +279,7 @@ def ty_chi(df, target, col_2):
     It runs a chi2_contingency on the two columns and prints out the column names, chi2 score, and p-value.
     '''
     # create a crosstab of the variables being tested
-    observed = pd.crosstab(df[col_1], df[col_2])
+    observed = pd.crosstab(df[target], df[col_2])
     # run chi^2 testing on crosstab
     chi2, p, degf, expected = stats.chi2_contingency(observed)
     
