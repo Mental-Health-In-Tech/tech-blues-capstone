@@ -271,6 +271,44 @@ def two_hot(encoded_df):
     
     return new_df
 
+################### Hypothesis Testing ##########################################
+
+def ty_chi(df, target, col_2):
+    '''
+    This function takes in a pandas dataframe, along with two columns. 
+    It runs a chi2_contingency on the two columns and prints out the column names, chi2 score, and p-value.
+    '''
+    # create a crosstab of the variables being tested
+    observed = pd.crosstab(df[col_1], df[col_2])
+    # run chi^2 testing on crosstab
+    chi2, p, degf, expected = stats.chi2_contingency(observed)
+    
+    print(f'{target} & {col_2} chi2 test results')
+    print('')
+    print(f'chi^2 = {chi2:.2f}')
+    print(f'    p = {p:.4f}')
+    
+def three_chi(df, control, target, col_2):
+    '''
+    This function takes in a pandas DataFrame, a control variable, target_variable, and other variable.
+    It creates separate DataFrames that control for the control variable.
+    '''
+    length = len(df[control].value_counts())
+    span = range(0,length)
+    
+    for i in span:
+        sub_df = df[df[control]==i]
+        observed = pd.crosstab(sub_df[target], sub_df[col_2])
+        chi2, p, degf, expected = stats.chi2_contingency(observed)
+        print(f'controlling for {control}')
+        print('')
+        print(f'{target} & {col_2} chi2 test results')
+        print('')
+        print(f'chi^2 = {chi2:.2f}')
+        print(f'    p = {p:.4f}')
+        print('')
+        print('-----------------------------------')
+
 # ######################## Mother Functions ######################################
 
 # def explore_univariate(df, cat_vars=[], quant_vars=[]):
