@@ -21,9 +21,40 @@ def mental_health_univariate(df):
         plt.show()
         
     for quant in quant_vars:
-        sns.histplot(data=df, x=quant)
-        plt.show()
+        plot_univariate_quant(df)
+        
+def plot_univariate_cat(df):
+    '''
+    This function takes in a pandas DataFrame, creates a list of categorical values, and plots barplots, and percentage plots of the variables.
+    '''
+    cat_vars, quant_vars = cat_vs_quant(df)
     
+    for cat in cat_vars:
+        plt.figure(figsize=(16,4))
+        plt.subplot(1,2,1)
+        sns.countplot(df[cat])
+        plt.title(f'{cat} distribution')
+        plt.subplot(1,2,2)
+        sns.barh(stacked=True)
+
+    
+
+def plot_univariate_quant(df):
+    '''
+    This function takes in a pandas DataFrame, creates a list of continuous variables, and plots histograms, and boxplots of the variables.
+    '''
+    
+    cat_vars, quant_vars = cat_vs_quant(df)
+    
+    for quant in quant_vars:
+        plt.figure(figsize=(16,4))
+        plt.subplot(1, 2, 1)
+        sns.histplot(data = df, x = df[quant], kde=True)
+        plt.title(f'{quant} distribution')
+        plt.subplot(1, 2, 2)
+        sns.boxplot(x=df[quant], data=df)
+        plt.title(f'{quant} distribution')
+        plt.show()    
 
 
 def explore_bivariate(df, target, cat_vars=[], quant_vars=[]):
@@ -53,14 +84,15 @@ def cat_vs_quant(df):
     '''
     
     cat_vars = []
-    quant_vars = []
+    quant_vars = ['age']
+    no_need = []
     col_list = list(df.columns)
     
     for col in col_list:
         if df[col].nunique()<=6:
             cat_vars.append(col)
-        else:
-            quant_vars.append(col)
+#         else:
+#             no_need.append(col)
     
     return cat_vars, quant_vars
 
