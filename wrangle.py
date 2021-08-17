@@ -174,7 +174,6 @@ def prep_encode(df):
     df = encode_leave(df)
     df = encode_gender(df)
 
-    
     return df
 
 ########################## Child Functions for Preparation ##############################
