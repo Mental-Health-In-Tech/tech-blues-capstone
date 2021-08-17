@@ -252,7 +252,7 @@ def one_hot(encoded_df):
     
     selected_cols_df = encoded_df[['gender', 'work_interfere', 'company_size', 'leave', 'care_options', 'benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_health_consequence', 'phys_health_consequence', 'coworkers', 'supervisor', 'mental_health_interview', 'phys_health_interview', 'mental_vs_physical']]
     
-    encoded_dummies = pd.get_dummies(data=selected_cols_df, columns = ['company_size', 'leave', 'care_options', 'benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_health_consequence', 'phys_health_consequence', 'coworkers', 'supervisor', 'mental_health_interview', 'phys_health_interview', 'mental_vs_physical'])
+    encoded_dummies = pd.get_dummies(data=selected_cols_df, columns = ['gender', 'company_size', 'leave', 'care_options', 'benefits', 'wellness_program', 'seek_help', 'anonymity', 'mental_health_consequence', 'phys_health_consequence', 'coworkers', 'supervisor', 'mental_health_interview', 'phys_health_interview', 'mental_vs_physical'])
     
     new_df = pd.concat([encoded_df['age'], encoded_dummies], axis=1)
     
