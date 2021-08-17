@@ -300,7 +300,7 @@ def three_chi(df, control, target, col_2):
         sub_df = df[df[control]==i]
         observed = pd.crosstab(sub_df[target], sub_df[col_2])
         chi2, p, degf, expected = stats.chi2_contingency(observed)
-        print(f'controlling for {control}')
+        print(f'controlling for {control} = {i}')
         print('')
         print(f'{target} & {col_2} chi2 test results')
         print('')
