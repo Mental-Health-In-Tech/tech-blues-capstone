@@ -70,12 +70,15 @@ def mental_health_univariate(df):
     '''
     cat_vars, quant_vars = cat_vs_quant(df)
     
+    
     for cat in cat_vars:
+        plt.figure(figsize=(4, 4))
         sns.countplot(df[cat])
-        plt.figure(figsize=(3,3))
+        
         plt.show()
         
     for quant in quant_vars:
+        plt.figure(figsize=(12, 4))
         plot_univariate_quant(df)
         
 ####### Categorical Variables
@@ -91,7 +94,6 @@ def plot_univariate_quant(df):
     cat_vars, quant_vars = cat_vs_quant(df)
     
     for quant in quant_vars:
-        plt.figure(figsize=(3,3))
         plt.subplot(1, 2, 1)
         sns.histplot(data = df, x = df[quant], kde=True)
         plt.title(f'{quant} distribution')
@@ -191,7 +193,7 @@ def bivariate_quant(df, target, quant_var):
     descriptive_stats = df.groupby(target)[quant_var].describe()
     average = df[quant_var].mean()
     mann_whitney = compare_means(df, target, quant_var)
-    plt.figure(figsize=(4,4))
+    plt.figure(figsize=(8,4))
     boxen = plot_boxen(df, target, quant_var)
     swarm = plot_swarm(df, target, quant_var)
     plt.show()
@@ -208,7 +210,7 @@ def plot_swarm(df, target, quant_var):
 
 def plot_boxen(df, target, quant_var):
     average = df[quant_var].mean()
-    p = sns.boxenplot(data=df, x=target, y=quant_var, color='lightseagreen')
+    p = sns.boxenplot(data=df, x=target, y=quant_var)
     p = plt.title(quant_var)
     p = plt.axhline(average, ls='--', color='black')
     return p
