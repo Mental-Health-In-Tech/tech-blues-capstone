@@ -24,7 +24,7 @@
 ## Data Exploration (Tyler)
 - [X] split data for exploration
 - [X] Univariate exploration and visualizations
-- [] Bivariate exploration and visualizations
+- [X] Bivariate exploration and visualizations
 - [] Multivariate exploration and visualizations
 - [X] Create minimum 4 initial hypotheses
     - H1: The mean rate of work interference is equal across all company sizes.
@@ -40,18 +40,18 @@
     
     
 ## Modeling (Parker)
-- [] split data for modeling
-- [] Decide on which models to use
-- [] Create models
+- [X] split data for modeling
+- [X] Decide on which models to use
+- [X] Create models
 
 ## Evaluation (Parker)
-- [] Decide which metric to use
+- [X] Decide which metric to use
 - [] Decide on best model
 - [] Use feature importance
 
 ## Presentation (Lupe)
-- [] Choose color scheme
-- [] Table of Contents
+- [X] Choose color scheme
+- [X] Table of Contents
     - [] Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
     - [] Introduction, Executive Summary, and Conclusion
 - [] Introduction (Name team members)
