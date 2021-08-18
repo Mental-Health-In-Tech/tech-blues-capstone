@@ -82,21 +82,21 @@ Our data was acquired through Kaggle.com. We XXXX.
 | age	| Respondent age  | - |
 | gender	| Respondent gender | male:0, female:1, other:2 |
 | country	 |  Respondent survey  | - |
-| self_employed	 | Whether or not they were self employed | No:0, Yes:1 |
-| family_history	| Whether or not they have a family history of mental illness | No:0, Yes:1 |
-| treatment	 |  Whether or not they have sought treatment  | No:0, Yes:1 |
-|  work_interfere	  |  If the person felt that the mental condition interfered with work | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
-| no_employees	| The number of employees in the company or organization  | <5:0, 6-25:1, 26-100:2, 101-500:3, 501-1000:4, >1000:5 |
-| remote_work	 | Having remote work (outside of an office) at least 50% of the time | No:0, Yes:1 |
-| tech_company	| The employer is primarily a tech company/organization | No:0, Yes:1 |
-| benefits  |	Providing mental health benefits by the employer | No:0, Yes:1, Don't know:2 |
-| care_options |	Providing options for mental health care by the employer | No:0, Yes:1, Not sure:2 |
-| wellness_program	| Discussion about mental health as part of an employee wellness program by the employees | No:0, Yes:1, Don't know:2 |
-| seek_help	| Provided resources by the employer to learn more about mental health issues and how to seek help | No:0, Yes:1, Don't know:2 |
-| anonymity |	Protecting anonymity if you choose to take advantage of mental health or substance abuse treatment resources | No:0, Yes:1, Don't know:2 |
+| self_employed	 | Are you self-employed? | No:0, Yes:1 |
+| family_history	| Do you have a family history of mental illness? | No:0, Yes:1 |
+| treatment	 |  Have you sought treatment for a mental health condition?  | No:0, Yes:1 |
+|  work_interfere	  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
+| no_employees	| How many employees does your company or organization have?  | <5:0, 6-25:1, 26-100:2, 101-500:3, 501-1000:4, >1000:5 |
+| remote_work	 | Do you work remotely (outside of an office) at least 50% of the time? | No:0, Yes:1 |
+| tech_company	| Is your employer primarily a tech company/organization? | No:0, Yes:1 |
+| benefits  |	Does your employer provide mental health benefits? | No:0, Yes:1, Don't know:2 |
+| care_options |	Do you know the options for mental health care your employer provides? | No:0, Yes:1, Not sure:2 |
+| wellness_program	| Has your employer ever discussed mental health as part of an employee wellness program? | No:0, Yes:1, Don't know:2 |
+| seek_help	| Does your employer provide resources to learn more about mental health issues and how to seek help? | No:0, Yes:1, Don't know:2 |
+| anonymity |	Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources? | No:0, Yes:1, Don't know:2 |
 | leave  |	How easy is it for you to take medical leave for a mental health condition? | Very difficult:0, Somewhat difficult:1, Don't know:2, Somewhat easy:3, Very easy:4 |
-| mental-health_consequence |	Having negative consequences caused by discussing a mental health issue with your employer | No:0, Yes:1, Maybe:2 |
-| phys-health_consequence	 | Having negative consequences caused by discussing a physical health issue with your employer  | No:0, Yes:1, Maybe:2 |
+| mental-health_consequence |	Do you think that discussing a mental health issue with your employer would have negative consequences? | No:0, Yes:1, Maybe:2 |
+| phys-health_consequence	 | Do you think that discussing a physical health issue with your employer would have negative consequences?  | No:0, Yes:1, Maybe:2 |
 | coworkers |	Would you be willing to discuss a mental health issue with your coworkers? | No:0, Yes:1, Some of them:2 |
 | supervisor	| Would you be willing to discuss a mental health issue with your direct supervisor(s)? | No:0, Yes:1, Some of them:2 |
 | mental_health_interview  |	Would you bring up a mental health issue with a potential employer in an interview?  | No:0, Yes:1, Maybe:2 |
