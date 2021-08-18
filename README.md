@@ -15,7 +15,7 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 ---
 
 ### 1. Project Description
-We will be the Classification model to see if we can predict whether or not mental health interferes with workplace of tech employees.  
+We will be using a Classification model to see if we can predict the drivers of mental health and whether or not they interfere with the workplace of tech employees.  
 <br>
 <br>
 
@@ -33,7 +33,7 @@ We will be the Classification model to see if we can predict whether or not ment
 ---
 
 ### 1. Goals  
-Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict XXXX, with a better accuracy than XXXX% (the baseline accuracy for assuming whether or not the other factors interfere with work.)
+Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict the drivers of mental health in the tech workplace, with a better accuracy than 63% (the baseline accuracy for assuming whether or not the other factors interfere with work.)
 <br>
 <br>
 
