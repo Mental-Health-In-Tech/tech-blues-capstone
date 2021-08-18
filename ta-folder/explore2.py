@@ -308,23 +308,6 @@ def three_chi(df, control, target, col_2):
         print(f'    p = {p:.4f}')
         print('')
         print('-----------------------------------')
-        
-def plot_chi(df, control, target, col_2):
-    '''
-    This function takes in a pandas DataFrame, a control variable, target_variable, and other variable.
-    It creates separate DataFrames that control for the control variable.
-    '''
-    length = len(df[control].value_counts())
-    span = range(0,length)
-    
-    for i in span:
-        sub_df = df[df[control]==i]
-        print(f'Controlling for {control} = {i}')
-        print('')
-        ty_chi(sub_df, target, col_2)
-        print('')
-        print('------------------------------------')
-    sns.catplot(data=df, x=col_2, hue=target, col=control, kind='count', height=4, aspect=.7)
 
 # ######################## Mother Functions ######################################
 
