@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.feature_selection import SelectKBest, f_regression, chi2
+import time
+import matplotlib.pyplot as plt
 
 def train_validate_test_split(df, target, seed=123):
     '''
@@ -64,3 +66,35 @@ def select_kbest(X, y, stats = f_regression, k = 3):
         if bool:
             new_feat.append(feature)
     return print('The best features are:{}'.format(new_feat))
+
+def get_importances(model):
+    '''This function takes in a tree based model and returns an array 
+       of feature weights and the standard deviation between each tree
+       in the forest'''
+    # get start time
+    start_time = time.time()
+    # pull out feature importances
+    importances = model.feature_importances_
+    # find the standard deviation of feature importances for each tree in the random forest
+    std = np.std([
+        x.feature_importances_ for x in model.estimators_], axis=0)
+    # calculate the elapsed time for analysis
+    elapsed_time = time.time() - start_time
+    print(f"Elapsed time to compute the importances: "
+          f"{elapsed_time:.3f} seconds")
+    return importances, std
+
+def graph_importances(data, importances, std): 
+    '''Takes in the X_train for data, array of feature importance, and
+       standard deviation of estimators in the forest. Returns a graph
+       plotting mean decrease in impurity for each feature'''
+    # create feature names for x label of the chart
+    feature_names = [f'feature {i}' for i in range(data.shape[1])]
+    # get importances for each feature
+    forest_importances = pd.Series(importances, index=feature_names)
+    fig, ax = plt.subplots()
+    # Use std for errorbars, place each feautre importance on the chart
+    forest_importances.plot.bar(yerr=std, ax=ax)
+    ax.set_title("Feature importances using MDI")
+    ax.set_ylabel("Mean decrease in impurity")
+    return fig.tight_layout()
