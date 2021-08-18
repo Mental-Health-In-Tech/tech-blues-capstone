@@ -70,7 +70,7 @@ With more time, we should XXXX.
 --- 
 ### 1. About Our Data
 
-Our data was acquired through Kaggle.com. We XXXX. 
+Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  It is a dataset from a 2014 survey that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace. 
 <br>
 
 
@@ -116,15 +116,16 @@ Our data was acquired through Kaggle.com. We XXXX.
 
 #### 1. Project Planning
 At a quick glance, the following is what needs to be done: 
+We are going to download the .csv file ‘Mental Health in Tech Survey’ from [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  Once we download the file, we will filter for desirable variables of mental health that could interfere with work (benefits, family history, gender, etc.). We will then follow the steps of the data science pipeline to setup the information for our slides presentation.
 
 
 ##### **Plan ->** Acquire -> Prepare -> Explore -> Model -> Deliver
 - [x] Create README.md with data dictionary, project and business goals
-- [x] Acquire data - XXXX. 
-- [x] XXXX Clean and prepare data for the first iteration through the pipeline, MVP preparation. Create a function to automate the process, store the function in a prepare.py module, and prepare data in Final Report Notebook by importing and using the funtion(s).
-- [x]  Clearly define XXXX hypotheses, set an alpha, run the statistical tests needed, reject or fail to reject the Null Hypothesis, and document findings and takeaways.
+- [x] Acquire data - We will download the .csv file named 'Mental Health in Tech Survey' from [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey). 
+- [x] Clean and prepare data for the first iteration through the pipeline, MVP preparation. Create a function to automate the process, store the function in the prepare.py module, and prepare data in Final Report Notebook by importing and using the funtion(s).
+- [x]  Clearly define 8 hypotheses, set an alpha, run the statistical tests needed, reject or fail to reject the Null Hypothesis, and document findings and takeaways.
 - [x] Establish a baseline accuracy and document well.
-- [x] Train XXXX different models.
+- [x] Train 4 different models.
 - [x] Evaluate models on train and validate datasets.
 - [x] Choose the model with that performs the best and evaluate that single model on the test dataset.
 - [x] Document conclusions, takeaways, and next steps in the Final Report Notebook.
@@ -141,7 +142,7 @@ ___
 
 
 #### 3. Data Preparation
-> - Clean our data: XXXX
+> - Clean our data: keep only the desirable variables of mental health that could interfere with work.
 > - Store functions needed to prepare the data
 > - Import the prepare/wrangle functions created by using prepare.py or wrangle.py
 > - Split the data into train, validate, and test sets
@@ -189,9 +190,9 @@ Here is a quick summary of our results:
 
 ## E.) Modules
 ---
-- acquire.py = contains data acquisiton functions used to scrape the data, as well as to bring it in from our local server
-- prepare.py = contains preparation functions to filter and clean our data
-- wrangle.py = contains XXXXX 
+- wrangle.py = contains the acquire function along with the prepare functions which will filter and clean our data
+- explore.py =  contains explore functions that will generate visualizations
+- evaluate.py = contains the metrics needed for modeling
 
 
 
@@ -202,6 +203,6 @@ Here is a quick summary of our results:
 
 - [X] Read this README.md
 - [ ] Download the survey.csv file into your working directory
-- [ ] Download the aquire.py, prepare.py, wrangle.py and XXXXfinal_notebook.ipynb files into your working directory
+- [ ] Download the aquire.py, prepare.py, wrangle.py and Tech_Blues_Final.ipynb files into your working directory
 - [ ] Clone this repo
-- [ ] Run the XXXXfinal.ipynb notebook
+- [ ] Run the Tech_Blues_Final.ipynb notebook
