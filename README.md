@@ -85,7 +85,7 @@ Our data was acquired through Kaggle.com. We XXXX.
 | self_employed	 | Are you self-employed? | No:0, Yes:1 |
 | family_history	| Do you have a family history of mental illness? | No:0, Yes:1 |
 | treatment	 |  Have you sought treatment for a mental health condition?  | No:0, Yes:1 |
-|  work_interfere	  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
+|  work_interfere	*  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
 | no_employees	| How many employees does your company or organization have?  | <5:0, 6-25:1, 26-100:2, 101-500:3, 501-1000:4, >1000:5 |
 | remote_work	 | Do you work remotely (outside of an office) at least 50% of the time? | No:0, Yes:1 |
 | tech_company	| Is your employer primarily a tech company/organization? | No:0, Yes:1 |
@@ -105,7 +105,7 @@ Our data was acquired through Kaggle.com. We XXXX.
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
 
 
-* Target variable
+> * Target variable
 
 ## D. Pipeline
 --- 
