@@ -13,8 +13,8 @@
 
 - [x] Assign variables to each team member
 - [X] Assign final function to {Carl}
-- [] Create list of feature engineering for 1st iteration
-- [] Create list of feature engineering for future iterations
+- [X] Create list of feature engineering for 1st iteration
+- [X] Create list of feature engineering for future iterations
 
 # Data Wrangling (Linh)
 - [X] Assign to {Linh}
