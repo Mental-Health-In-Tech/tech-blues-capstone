@@ -15,7 +15,7 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 ---
 
 ### 1. Project Description
-We will be using a Classification model to see if we can predict the drivers of mental health and whether or not they interfere with the workplace of tech employees.  
+We will be using a Classification model to see if we can predict the drivers of mental health and whether or not they interfere with tech employees in the workplace.  
 <br>
 <br>
 
@@ -159,8 +159,7 @@ ___
 
 #### 5. Modeling & Evaluation
 > - Establish a baseline accuracy 
-> - XXX Fit using XXXX
-> - XXX Evaluate decision tree, random forest, logistic regression, KNN, and Naive Bayes models
+> - Evaluate decision tree, random forest classifier, XGBoost, and multi-layer perceptron classifier models
 > - Emphasize on beating the baseline accuracy, and overall accuracy of the model. 
 
 Here is a quick summary of our results:
@@ -171,8 +170,8 @@ Here is a quick summary of our results:
 |---------------------|-------------|----------------|------------|
 | Decision Tree       | XXXX %      | XXXX %         | ---        |
 | Random Forest       | XXXX %      | XXXX %         | ---        |
-| Logistic Regression | XXXX %      | XXXX %         | ---        |
-| KNN                 | XXXX %      | XXXX %         | ---        |
+| XGBoost             | XXXX %      | XXXX %         | ---        |
+| Multi-layer Perceptron | XXXX %   | XXXX %         | ---        |
 
 
 
