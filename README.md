@@ -38,10 +38,12 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 <br>
 
 ### 2.) Initial Thoughts & Hypothesis
+
 > Hypothesis 1: 'Supervisor'
 > - alpha : 0.05
 > - ${H_0}$: The mean workplace interference is the same for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
 > - ${H_a}$: The mean workplace interference is different for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
+
 #### Hypothesis 1 - Key Findings, Takeaways, and Next Steps:
 - 'Supervisor'
 - Since the p-value is less than alpha, we can reject the null hypothesis. There is evidence to suggest a relationship between an employee feeling comfortable speaking with a supervisor about personal mental health issues and work interference.
@@ -51,15 +53,30 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 > - ${H_0}$: There is no difference between having benefits and whether or not treatment is sought.
 > - ${H_a}$: There is a difference between having benefits and whether or not treatment is sought.
 
+#### Hypothesis 2 - Key Findings, Takeaways, and Next Steps:
+- Due to our p-value being less than alpha, we reject the null hypothesis.
+- There is evidence to suggest a relationship between individuals who have sought treatment in the past and whether or not they have benefits affects work interference.
+
 > Hypothesis 3: If you have observed negative consequences for coworkers with mental health conditions do you not talk to your supervisor and this interferes with your work performance?
 > - alpha : 0.05
 > - ${H_0}$: There is no difference between observed negative consequences for coworkers with mental health conditions and talking to my supervisor.
 > - ${H_a}$: There is a difference between observed negative consequences for coworkers with mental health conditions and talking to my supervisor.
 
+#### Hypothesis 3 - Key Findings, Takeaways, and Next Steps:
+- Due to our p-value being less than alpha, we reject the null hypothesis for employees who are able to speak to some of their supervisors about mental health. 
+- Due to our p-value being more than alpha for supervisor option 0 (No can't speak to supervisor) and option 1 (yes they can speak to their supervisor), we fail to reject the null hypothesis.
+- The only relevant relationship here after assessing the p-value is for employees who are able to speak to some of their supervisors about mental health and who have or have not observed/heard of negative consequences for coworkers with mental health conditions. It seems this group is more than 50% likely to experience work interference.
+
 > Hypothesis 4: If you believe speaking about mental health has negative consequences have/have not sought treatment to the point where it interferes with work?
 > - alpha : 0.05
 > - ${H_0}$: If you believe speaking about mental health has negative consequences and have/have not sought it has no affect with work interference?
 > - ${H_a}$: If you believe speaking about mental health has negative consequences and have/have not sought it has an affect with work interference?
+
+#### Hypothesis 4 - Key Findings, Takeaways, and Next Steps:
+- Due to our p-value being less than alpha, we reject the null hypothesis except for mental health consequence option 2 (Maybe).
+- Due to our p-value being more than alpha, we fail to reject the null hypothesis except for mental health consequence option 0 (No) and option 1 (Yes).
+- The only relationship we can look at here due to the p-values is for the group of employees who are unsure if speaking with their employer about mental health would have negative consequences.
+- For employees who are unsure if there will be negative consequences speaking about mental health to their employer and has not observed any negative consequences they have higher than a 50% increase in work interference. 
 
 > Hypothesis 5: 'Supervisor'
 > - alpha : 0.05
@@ -75,7 +92,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 > - ${H_0}$: When controlling for gender, the rate of work interference is the same among all responses to mental_vs_physical
 > - ${H_a}$: When controlling for gender, the rate of work interference is different among each response to mental_vs_physical
 
-#### Hypothesis 6: Takeaways from `supervisor` and `work_interfere` when controlling for `gender`
+#### Hypothesis 6 - Key Findings, Takeaways, and Next Steps:
 - Men who feel comfortable speaking about mental health issues with a supervisor have work place interference at a significantly lower rate than those who either feel uncomfortable, or do not know.
 - For women, it surprisingly does not seem to matter how they responded to the 'supervisor' question
 - There is not enough data for gender=other to have actionable insight
@@ -95,13 +112,20 @@ We also hope to find XXXX.
 
 ### 3.) Findings & Next Steps
 
-We found that our XXX model performed the best with a:
- - XXXX % score on accuracy
- - XXXX % score on precision
- - XXXX % score on recall
- 
-It does well with XXXX.
-With more time, we should XXXX. 
+We found that our RandomForestClassifier performed the best predicting for work interference:
+ - Baseline accuracy: 63.11 %
+ - Train data set: 
+     - accuracy score: 88.31%
+     - precision score 94.20%
+     - recall score: 81.66%
+ - Validation set:
+     - accuracy score: 83.04%
+     - validate data set precision score 94.92%
+     - validate data set recall score: 77.24%
+ - Test set
+     - 85.94% accuracy score
+     - 93.52% precision score
+     - 83.47% recall score  
 
 
 
@@ -199,7 +223,9 @@ ___
 #### 5. Modeling & Evaluation
 > - Establish a baseline accuracy 
 > - Evaluate decision tree, random forest classifier, XGBoost, and multi-layer perceptron classifier models
-> - Emphasize on beating the baseline accuracy, and overall accuracy of the model. 
+> - Use accuracy to determine if models are better than baseline
+> - The model should be best predicting the most costly case, which is employees who's mental health interferes with work. For that reason, evaluate models using f1 score so that false negatives are weighted more heavily. 
+> - Use the best model on out-of-sample data.
 
 Here is a quick summary of our results:
 
@@ -231,8 +257,9 @@ Baseline Accuracy : 63%
 - wrangle.py = contains the acquire function along with the prepare functions which will filter and clean our data
 - explore.py =  contains explore functions that will generate visualizations
 - evaluate.py = contains the metrics needed for modeling
-
-
+- imbalance-learn was used to deal with class imbalance
+- scikit-learn was used for MLPClassifier, RandomForestClassifier, and DecisionTree
+- xgboost was used to fit the XGBoost classifier
 
 
 ## F. Project Reproduction
