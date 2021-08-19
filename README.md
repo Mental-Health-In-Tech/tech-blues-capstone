@@ -139,8 +139,8 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 
 ### 2. Data Dictionary
 
-| Target Variable.     |  Description | Encoding|
-| :------------------ | -------------- |----------:|
+| Target Variable     |  Description | Encoding|
+| :------------- | ----------- | -----------: |
 |  work_interfere  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
 
 |   Feature       | Description    | Encoding |
