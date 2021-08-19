@@ -25,7 +25,7 @@
 - [X] split data for exploration
 - [X] Univariate exploration and visualizations
 - [X] Bivariate exploration and visualizations
-- [] Multivariate exploration and visualizations
+- [X] Multivariate exploration and visualizations
 - [X] Create minimum 4 initial hypotheses
     - H1: The mean rate of work interference is equal across all company sizes.
     - H2: That ease of taking leave has no impact on the rate of work interference.
@@ -46,8 +46,8 @@
 
 ## Evaluation (Parker)
 - [X] Decide which metric to use
-- [] Decide on best model
-- [] Use feature importance
+- [X] Decide on best model
+- [X] Use feature importance
 
 ## Presentation (Lupe)
 - [X] Choose color scheme
@@ -67,7 +67,7 @@
     - [] Recommendation
 
 ## Conclusions & Next Steps
-- [] Recommended model
-- [] Recommendations for mental health improvement in the workplace 
+- [X] Recommended model
+- [X] Recommendations for mental health improvement in the workplace 
 
 
