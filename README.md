@@ -38,19 +38,58 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 <br>
 
 ### 2.) Initial Thoughts & Hypothesis
-> - **Hypothesis 1 -** 
-> - (hypothesis between) XXXX - two comparisons go here
-> - alpha = .05
-> - $H_o$: There is no difference XXXX
-> - $H_a$: There is a difference XXXX
+> Hypothesis 1: 'Supervisor'
+> - alpha : 0.05
+> - ${H_0}$: The mean workplace interference is the same for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
+> - ${H_a}$: The mean workplace interference is different for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
+#### Hypothesis 1 - Key Findings, Takeaways, and Next Steps:
+- 'Supervisor'
+- Since the p-value is less than alpha, we can reject the null hypothesis. There is evidence to suggest a relationship between an employee feeling comfortable speaking with a supervisor about personal mental health issues and work interference.
 
-> - **Hypothesis 2 -** 
-> - (hypothesis between) XXXX - two comparisons go here
-> - alpha = .05
-> - $H_o$: There is no difference XXXX
-> - $H_a$: There is a difference XXXX
+> Hypothesis 2: Does having benefits affect whether or not you seek treatment affect work interference?
+> - alpha : 0.05
+> - ${H_0}$: There is no difference between having benefits and whether or not treatment is sought.
+> - ${H_a}$: There is a difference between having benefits and whether or not treatment is sought.
 
+> Hypothesis 3: If you have observed negative consequences for coworkers with mental health conditions do you not talk to your supervisor and this interferes with your work performance?
+> - alpha : 0.05
+> - ${H_0}$: There is no difference between observed negative consequences for coworkers with mental health conditions and talking to my supervisor.
+> - ${H_a}$: There is a difference between observed negative consequences for coworkers with mental health conditions and talking to my supervisor.
 
+> Hypothesis 4: If you believe speaking about mental health has negative consequences have/have not sought treatment to the point where it interferes with work?
+> - alpha : 0.05
+> - ${H_0}$: If you believe speaking about mental health has negative consequences and have/have not sought it has no affect with work interference?
+> - ${H_a}$: If you believe speaking about mental health has negative consequences and have/have not sought it has an affect with work interference?
+
+> Hypothesis 5: 'Supervisor'
+> - alpha : 0.05
+> - ${H_0}$: The mean workplace interference is the same for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
+> - ${H_a}$: The mean workplace interference is different for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
+
+#### Hypothesis 5 - Key Findings, Takeaways, and Next Steps:
+- Due to our p-value being less than alpha, we reject the null hypothesis.
+- There is evidence to suggest a relationship between feeling comfortable speaking with a supervisor about personal mental health issues and our target variable, 'work_interfere'
+
+> Hypothesis 6: controlling for `gender`, how does `talking to a supervisor` relate to `work_interfere`
+> - alpha : 0.05
+> - ${H_0}$: When controlling for gender, the rate of work interference is the same among all responses to mental_vs_physical
+> - ${H_a}$: When controlling for gender, the rate of work interference is different among each response to mental_vs_physical
+
+#### Hypothesis 6: Takeaways from `supervisor` and `work_interfere` when controlling for `gender`
+- Men who feel comfortable speaking about mental health issues with a supervisor have work place interference at a significantly lower rate than those who either feel uncomfortable, or do not know.
+- For women, it surprisingly does not seem to matter how they responded to the 'supervisor' question
+- There is not enough data for gender=other to have actionable insight
+- We recommend that companies work to improve communication between management and staff, as there is clear evidence that it greatly helps reduce the rate of workplace interference amongst men, and does not harm anyone else.
+
+> Hypothesis 7: controlling for `gender`, how does `mental_vs_physical` relate to `work_interfere`
+> - alpha : 0.05
+> - ${H_0}$: When controlling for gender, the rate of work interference is the same among all responses to mental_vs_physical
+> - ${H_a}$: When controlling for gender, the rate of work interference is different among each response to mental_vs_physical
+
+#### Hypothesis 7 - Key Findings, Takeaways, and Next Steps:
+- Men who feel that their company takes mental health as seriously as physical health have work interference at a significantly lower rate than those who do not, or do not know.
+- Women who feel that their company takes mental health as seriously as physical health have work interference at a lower rate than those who do not, or do not know.
+- Once again, we do not have enough data where gender = other to have actionable insight.
 We also hope to find XXXX. 
 
 
