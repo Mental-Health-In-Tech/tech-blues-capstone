@@ -212,11 +212,13 @@ ___
 
 
 #### 4. Data Exploration
-> - Explore the train data.
-> - XXXX
-> - XXXX 
-> - XXXX
-> - XXXX
+> - Create detail questions we want to ask of the data.
+> - Perform univariate analysis on the entire dataset.
+> - Perform bivariate and multivariate analysis on the training dataset.
+> - Perform statistical testing on each of our initial hypotheses.
+> - Use data from initial exploration to determine drivers of workplace interference.
+> - Determine key relationships between drivers to see if the data creates any groups not seen at surface level.
+> - Document key findings, takeaways, and next steps for each stage of exploration
 > - Visualize! 
 
 
