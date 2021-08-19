@@ -164,14 +164,14 @@ ___
 
 Here is a quick summary of our results:
 
-
+Baseline Accuracy : 63%
 
 | Model               | Train Score | Validate Score | Test Score |
 |---------------------|-------------|----------------|------------|
-| Decision Tree       | XXXX %      | XXXX %         | ---        |
-| Random Forest       | XXXX %      | XXXX %         | ---        |
-| XGBoost             | XXXX %      | XXXX %         | ---        |
-| Multi-layer Perceptron | XXXX %   | XXXX %         | ---        |
+| Decision Tree       | 87 %      | 82 %         | ---        |
+| Random Forest       | 88 %      |  83%         | 85%        |
+| XGBoost             | 95 %      | 80%         | ---        |
+| Multi-layer Perceptron | 91 %   | 82 %         | ---        |
 
 
 
