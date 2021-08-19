@@ -15,7 +15,7 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 ---
 
 ### 1. Project Description
-We will be using a Classification model to see if we can predict the drivers of mental health and whether or not they interfere with tech employees in the workplace.  
+We will be using a classification model to predict cases of work interference due to mental health. A feature importance analysis will then be run on the model to determine what causes work interference.  
 <br>
 <br>
 
@@ -33,7 +33,7 @@ We will be using a Classification model to see if we can predict the drivers of 
 ---
 
 ### 1. Goals  
-Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict the drivers of mental health in the tech workplace, with a better accuracy than 63% (the baseline accuracy for assuming whether or not the other factors interfere with work.)
+Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict the drivers of mental health in the tech workplace, with a better accuracy than 63% (the baseline accuracy for assuming whether or not the other factors interfere with work.) Then, we want to determine the most important features by conducting a feature analysis and create business suggestions on how to improve workers' mental health in the workplace. 
 <br>
 <br>
 
@@ -139,6 +139,10 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 
 ### 2. Data Dictionary
 
+| Target Variable.     |  Description | Encoding|
+| :------------------ | -------------- |----------:|
+|  work_interfere  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
+
 |   Feature       | Description    | Encoding |
 | :------------- | ----------- | -----------: |
 | timestamp	|  Time survey was submitted | - |
@@ -148,7 +152,6 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | self_employed	 | Are you self-employed? | No:0, Yes:1 |
 | family_history	| Do you have a family history of mental illness? | No:0, Yes:1 |
 | treatment	 |  Have you sought treatment for a mental health condition?  | No:0, Yes:1 |
-|  work_interfere	*  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
 | no_employees	| How many employees does your company or organization have?  | <5:0, 6-25:1, 26-100:2, 101-500:3, 501-1000:4, >1000:5 |
 | remote_work	 | Do you work remotely (outside of an office) at least 50% of the time? | No:0, Yes:1 |
 | tech_company	| Is your employer primarily a tech company/organization? | No:0, Yes:1 |
@@ -167,8 +170,6 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | mental_vs_physical |	Do you feel that your employer takes mental health as seriously as physical health? | No:0, Yes:1, Don't know:2 |
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
 
-
-> * Target variable
 
 ## D. Pipeline
 --- 
@@ -256,12 +257,14 @@ Baseline Accuracy : 63%
 
 ## E.) Modules
 ---
-- wrangle.py = contains the acquire function along with the prepare functions which will filter and clean our data
-- explore.py =  contains explore functions that will generate visualizations
-- evaluate.py = contains the metrics needed for modeling
-- imbalance-learn was used to deal with class imbalance
-- scikit-learn was used for MLPClassifier, RandomForestClassifier, and DecisionTree
-- xgboost was used to fit the XGBoost classifier
+- wrangle.py contains the acquire function along with the prepare functions which filters and cleans our data
+- explore.py contains explore functions that generate visualizations and run statistical tests
+- evaluate.py contains functions to calculate classification metrics and for feature analysis
+- scipy.stats is used for statistical analysis
+- matplotlib was used for visualizations
+- imbalance-learn is used to deal with class imbalance
+- scikit-learn is used for MLPClassifier, RandomForestClassifier, and DecisionTree
+- xgboost is used to fit the XGBoost classifier
 
 
 ## F. Project Reproduction
