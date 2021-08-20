@@ -3,7 +3,7 @@
 ## Planning (Everyone)
 
 - [X] Create a data dictionary in the README.md {Lupe}
-- [] Complete README.md
+- [X] Complete README.md
 
 
 ## Data Acquisition (Linh)
@@ -52,19 +52,19 @@
 ## Presentation (Lupe)
 - [X] Choose color scheme
 - [X] Table of Contents
-    - [] Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
-    - [] Introduction, Executive Summary, and Conclusion
-- [] Introduction (Name team members)
-- [] Executive Summary
-- [] Set up Initial conflict
-    - [] Acquire
-    - [] Prepare
-- [] Why it matters?
-    - [] Exploration
-- [] Resolution
-    - [] Modeling and Evaluate
-- [] Conclusion
-    - [] Recommendation
+    - [X] Data Science Pipeline Overview (acquire, prepare, exploration, model and evaluate)
+    - [X] Introduction, Executive Summary, and Conclusion
+- [X] Introduction (Name team members)
+- [X] Executive Summary
+- [X] Set up Initial conflict
+    - [X] Acquire
+    - [X] Prepare
+- [X] Why it matters?
+    - [X] Exploration
+- [X] Resolution
+    - [X] Modeling and Evaluate
+- [X] Conclusion
+    - [X] Recommendation
 
 ## Conclusions & Next Steps
 - [X] Recommended model
