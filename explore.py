@@ -62,6 +62,19 @@ def full_split(df, target, seed=123):
 
 ########## Mother Function
 
+
+# creating a color palette for charts
+malibu = '#7CCDFF'
+caribbean_green = '#01D38E'
+flamingo = '#EC4C36'
+keppel = '#35A2A1'
+amber = '#FFBD0B'
+# colors = ['#7CCDFF', '#01D38E', '#EC4C36', '#35A2A1', '#FFBD0B']
+colors = [keppel, amber, flamingo, malibu, caribbean_green,]
+sns.set_palette(sns.color_palette(colors))
+
+
+
 def mental_health_univariate(df):
     '''
     This function takes in a pandas DataFrame, and performs univariate analysis for each variable.
