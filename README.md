@@ -107,7 +107,6 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 - Men who feel that their company takes mental health as seriously as physical health have work interference at a significantly lower rate than those who do not, or do not know.
 - Women who feel that their company takes mental health as seriously as physical health have work interference at a lower rate than those who do not, or do not know.
 - Once again, we do not have enough data where gender = other to have actionable insight.
-We also hope to find XXXX. 
 
 
 ### 3.) Findings & Next Steps
