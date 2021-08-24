@@ -9,18 +9,24 @@ Welcome to the README file for our Mental Health in Tech Capstone Project.
 
 Here, you will be able to find our project-planning though [Trello](https://trello.com/b/YET89ocX/mental-health-in-tech)
 
-
-
-## A. Project Overview
+# Table of Contents
+A. [Project Overview](#poverview)
+    1. [Project Description](#pdesc)
+    1. [Project Deliverables](#pdeliv)
+B. [Project Summary](#psum)
+    1. [Goals](#goals)
+    1. [Hypotheses](#hypo)
+C. [Findings & Next Steps]
+## <a name="poverview"></a>A. Project Overview
 ---
 
-### 1. Project Description
+### <a name="pdesc"></a> 1. Project Description
 We will be using a classification model to predict cases of work interference due to mental health. A feature importance analysis will then be run on the model to determine what causes work interference.  
 <br>
 <br>
 
 
-### 2. Project Deliverables
+### <a name="pdeliv"></a>2. Project Deliverables
  - Acquire, Prepare, and Explore Modules
  - Final Notebook (a walkthrough with comments)
  - Presentation Slides 
@@ -29,15 +35,15 @@ We will be using a classification model to predict cases of work interference du
 <br>
 
 
-## B. Project Summary
+## <a name="psum"></a>B. Project Summary
 ---
 
-### 1. Goals  
+### <a name="goals"></a>1. Goals  
 Our goal is to be able to succesfully acquire the data, and follow through with the data science pipeline to create a classification model that will predict the drivers of mental health in the tech workplace, with a better accuracy than 63% (the baseline accuracy for assuming whether or not the other factors interfere with work.) Then, we want to determine the most important features by conducting a feature analysis and create business suggestions on how to improve workers' mental health in the workplace. 
 <br>
 <br>
 
-### 2.) Initial Thoughts & Hypothesis
+### <a name="hypo"></a>2.) Initial Thoughts & Hypothesis
 
 > Hypothesis 1: 'Supervisor'
 > - alpha : 0.05
@@ -114,7 +120,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 </details>
 
 ### 3.) Findings & Next Steps
-
+#### 1. Modeling
 We found that our RandomForestClassifier performed the best predicting for work interference:
  - Baseline accuracy: 63.11 %
  - Train data set: 
@@ -128,10 +134,29 @@ We found that our RandomForestClassifier performed the best predicting for work 
  - Test set
      - 85.94% accuracy score
      - 93.52% precision score
-     - 83.47% recall score  
+     - 83.47% recall score 
+<details>
+<summary>View More</summary>
+<br>
+#### 2. Feature Analysis
+The most predictive features determined by permutation importance and mean decrease in impurity:
+- Whether or not the employee felt able to speak with a supervisor about mental health, 
+- The ease of getting approved for medical leave due to mental health 
+- Having healthcare options for mental health
+- Whether or not the employee felt like there are negative consequences for discussing mental health
+- Whether or not the employee had a family history of mental health issues. 
 
+#### 3. Next Steps and Recommendations
+- Gather more data to create a more accurate and robust dataset in regards to gender
+- Collect data on employees' financial status 
+- Collect data on the perceived amount of agency while completing work that an employee has. 
+- Train management on ways to increase inclusivity and how to support their employee's mental health
+- Communicate to new hires the importance of mental health during onboarding (PTOs, help that's available, etc.)
+- Have a mission statement that shows inclusivity for mental and physical health assistance
+- Take a holistic approach to health that considers mental health just as important as physical health
 
-
+<details>
+    
 ## C. Data Context
 --- 
 ### 1. About Our Data
