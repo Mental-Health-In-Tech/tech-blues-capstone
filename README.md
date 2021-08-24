@@ -31,6 +31,7 @@ F. [Project Reproduction](#pr)
 
 ## <a name="poverview"></a>A. Project Overview
 ---
+For our capstone project, we will analyze mental health in the workplace for tech employees via a survey taken in 2014. Our goal is to find features for mental health in the technology field that affects work interference. Construct a ML classification model that accurately predicts who's mental health will be affected to where there is work interference and perform a feature analysis to determine the most predictive features of work interference. 
 
 ### <a name="pdesc"></a> 1. Project Description
 We will be using a classification model to predict cases of work interference due to mental health. A feature importance analysis will then be run on the model to determine what causes work interference.  
@@ -40,8 +41,8 @@ We will be using a classification model to predict cases of work interference du
 
 ### <a name="pdeliv"></a>2. Project Deliverables
  - Acquire, Prepare, and Explore Modules
- - Final Notebook (a walkthrough with comments)
- - Presentation Slides 
+ - [Final Notebook](https://github.com/Mental-Health-In-Tech/tech-blues-capstone/blob/main/final_notebook.ipynb)
+ - [Presentation Slides](https://www.canva.com/design/DAEnBBOlwJI/o_dI1d09qoCiu6lU5P0EUQ/view?utm_content=DAEnBBOlwJI&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
  - This README 
 <br>
 <br>
