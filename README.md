@@ -182,9 +182,7 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | Target Variable     |  Description | Encoding|
 | :------------- | ----------- | -----------: |
 |  work_interfere  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
-<details>
-<summary>View More</summary>
-<br>
+    
 |   Feature       | Description    | Encoding |
 | :------------- | ----------- | -----------: |
 | timestamp	|  Time survey was submitted | - |
@@ -211,7 +209,6 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | phys_health_interview |	Would you bring up a physical health issue with a potential employer in an interview?  | No:0, Yes:1, Maybe:2 |
 | mental_vs_physical |	Do you feel that your employer takes mental health as seriously as physical health? | No:0, Yes:1, Don't know:2 |
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
-</details>
 
 ## <a name="pipe"></a> D. Pipeline
 --- 
