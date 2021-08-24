@@ -131,7 +131,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 - Once again, we do not have enough data where gender = other to have actionable insight.
 </details>
 
-###  <a name="fnc"></a> 3.) Findings & Next Steps
+###  <a name="fns"></a> 3.) Findings & Next Steps
 #### 1. Modeling
 We found that our RandomForestClassifier performed the best predicting for work interference:
  - Baseline accuracy: 63.11 %
@@ -167,7 +167,7 @@ The most predictive features determined by permutation importance and mean decre
 - Have a mission statement that shows inclusivity for mental and physical health assistance
 - Take a holistic approach to health that considers mental health just as important as physical health
 
-<details>
+</details>
     
 ##<a name="dc"></a> C. Data Context
 --- 
@@ -211,7 +211,7 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | phys_health_interview |	Would you bring up a physical health issue with a potential employer in an interview?  | No:0, Yes:1, Maybe:2 |
 | mental_vs_physical |	Do you feel that your employer takes mental health as seriously as physical health? | No:0, Yes:1, Don't know:2 |
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
-<details>
+</details>
 
 ## <a name="pipe"></a> D. Pipeline
 --- 
@@ -292,7 +292,7 @@ Baseline Accuracy : 63%
 > - Have a completed final notebook with markdowns and comments to explain the walkthrough of our process
 > - Acquire, prepare, and wrangle .py files completed with docstrings and used in our notebook
 > - Completed README for project information (summary, pipeline, findings and next steps, etc.)
-<details>
+</details>
 <br>
 <br>
 
