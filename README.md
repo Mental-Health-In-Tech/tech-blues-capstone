@@ -11,12 +11,18 @@ Here, you will be able to find our project-planning though [Trello](https://trel
 
 # Table of Contents
 A. [Project Overview](#poverview)
-    1. [Project Description](#pdesc)
-    1. [Project Deliverables](#pdeliv)
+   1. [Project Description](#pdesc)
+   1. [Project Deliverables](#pdeliv)
 B. [Project Summary](#psum)
-    1. [Goals](#goals)
-    1. [Hypotheses](#hypo)
-C. [Findings & Next Steps]
+   1. [Goals](#goals)
+   1. [Hypotheses](#hypo)
+   1. [Findings & Next Steps](#fns)
+C. [Data Context](#dc)
+   1. [Data Overview](#do)
+   1. [Data Dictionary](#dd)
+D. [Pipeline](#pipe)
+E. [Modules](#mod)
+F. [Project Reproduction](#pr)
 ## <a name="poverview"></a>A. Project Overview
 ---
 
@@ -119,7 +125,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 - Once again, we do not have enough data where gender = other to have actionable insight.
 </details>
 
-### 3.) Findings & Next Steps
+###  <a name="fnc"></a> 3.) Findings & Next Steps
 #### 1. Modeling
 We found that our RandomForestClassifier performed the best predicting for work interference:
  - Baseline accuracy: 63.11 %
@@ -157,15 +163,15 @@ The most predictive features determined by permutation importance and mean decre
 
 <details>
     
-## C. Data Context
+##<a name="dc"></a> C. Data Context
 --- 
-### 1. About Our Data
+### <a name="do"></a>1. About Our Data
 
 Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  It is a dataset from a 2014 survey conducted by the [Open Sourcing Mental Illness](https://osmihelp.org/research) that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace. 
 <br>
 
 
-### 2. Data Dictionary
+### <a name="dd"></a>2. Data Dictionary
 
 | Target Variable     |  Description | Encoding|
 | :------------- | ----------- | -----------: |
@@ -201,7 +207,7 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
 <details>
 
-## D. Pipeline
+## <a name="pipe"></a> D. Pipeline
 --- 
 
 ### Pipeline Stages Breakdown
@@ -284,7 +290,7 @@ Baseline Accuracy : 63%
 <br>
 <br>
 
-## E.) Modules
+## <a name="mod"></a>E. Modules
 ---
 - wrangle.py contains the acquire function along with the prepare functions which filters and cleans our data
 - explore.py contains explore functions that generate visualizations and run statistical tests
@@ -296,7 +302,7 @@ Baseline Accuracy : 63%
 - xgboost is used to fit the XGBoost classifier
 
 
-## F. Project Reproduction
+## <a name="pr"></a>F. Project Reproduction
 --- 
 
 
