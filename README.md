@@ -44,6 +44,10 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 > - ${H_0}$: The mean workplace interference is the same for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
 > - ${H_a}$: The mean workplace interference is different for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
 
+<details>
+<summary>View More</summary>
+<br>
+    
 #### Hypothesis 1 - Key Findings, Takeaways, and Next Steps:
 - 'Supervisor'
 - Since the p-value is less than alpha, we can reject the null hypothesis. There is evidence to suggest a relationship between an employee feeling comfortable speaking with a supervisor about personal mental health issues and work interference.
@@ -107,7 +111,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 - Men who feel that their company takes mental health as seriously as physical health have work interference at a significantly lower rate than those who do not, or do not know.
 - Women who feel that their company takes mental health as seriously as physical health have work interference at a lower rate than those who do not, or do not know.
 - Once again, we do not have enough data where gender = other to have actionable insight.
-
+</details>
 
 ### 3.) Findings & Next Steps
 
@@ -132,7 +136,7 @@ We found that our RandomForestClassifier performed the best predicting for work 
 --- 
 ### 1. About Our Data
 
-Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  It is a dataset from a 2014 survey that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace. 
+Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  It is a dataset from a 2014 survey conducted by the [Open Sourcing Mental Illness](https://osmihelp.org/research) that measures attitudes towards mental health and frequency of mental health disorders in the tech workplace. 
 <br>
 
 
@@ -141,7 +145,9 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | Target Variable     |  Description | Encoding|
 | :------------- | ----------- | -----------: |
 |  work_interfere  |  If you have a mental health condition, do you feel that it interferes with your work? | Never:0, Rarely:1, Sometimes:2, Often:3, NA:4 |
-
+<details>
+<summary>View More</summary>
+<br>
 |   Feature       | Description    | Encoding |
 | :------------- | ----------- | -----------: |
 | timestamp	|  Time survey was submitted | - |
@@ -168,7 +174,7 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 | phys_health_interview |	Would you bring up a physical health issue with a potential employer in an interview?  | No:0, Yes:1, Maybe:2 |
 | mental_vs_physical |	Do you feel that your employer takes mental health as seriously as physical health? | No:0, Yes:1, Don't know:2 |
 |  obs_consequence  |  Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?  | No:0, Yes:1 |
-
+<details>
 
 ## D. Pipeline
 --- 
@@ -180,7 +186,9 @@ Our data was acquired through [Kaggle](https://www.kaggle.com/osmi/mental-health
 #### 1. Project Planning
 At a quick glance, the following is what needs to be done: 
 We are going to download the .csv file ‘Mental Health in Tech Survey’ from [Kaggle](https://www.kaggle.com/osmi/mental-health-in-tech-survey).  Once we download the file, we will filter for desirable variables of mental health that could interfere with work (benefits, family history, gender, etc.). We will then follow the steps of the data science pipeline to setup the information for our slides presentation.
-
+<details>
+<summary>View More</summary>
+<br>
 
 ##### **Plan ->** Acquire -> Prepare -> Explore -> Model -> Deliver
 - [x] Create README.md with data dictionary, project and business goals
@@ -242,15 +250,12 @@ Baseline Accuracy : 63%
 
 
 
-
-
-
 #### 6. Product Delivery
 > - Deliver the findings in a Canva Slide presentation.
 > - Have a completed final notebook with markdowns and comments to explain the walkthrough of our process
 > - Acquire, prepare, and wrangle .py files completed with docstrings and used in our notebook
 > - Completed README for project information (summary, pipeline, findings and next steps, etc.)
-
+<details>
 <br>
 <br>
 
