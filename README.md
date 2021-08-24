@@ -151,6 +151,7 @@ We found that our RandomForestClassifier performed the best predicting for work 
 <details>
 <summary>View More</summary>
 <br>
+    
 #### 2. Feature Analysis
 The most predictive features determined by permutation importance and mean decrease in impurity:
 - Whether or not the employee felt able to speak with a supervisor about mental health, 
