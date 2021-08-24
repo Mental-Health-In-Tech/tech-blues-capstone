@@ -56,7 +56,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 <br>
 <br>
 
-### <a name="hypo"></a>2.) Initial Thoughts & Hypothesis
+### <a name="hypo"></a>2. Initial Thoughts & Hypothesis
 
 > Hypothesis 1: 'Supervisor'
 > - alpha : 0.05
@@ -132,7 +132,7 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 - Once again, we do not have enough data where gender = other to have actionable insight.
 </details>
 
-###  <a name="fns"></a> 3.) Findings & Next Steps
+###  <a name="fns"></a> 3. Findings & Next Steps
 #### 1. Modeling
 We found that our RandomForestClassifier performed the best predicting for work interference:
  - Baseline accuracy: 63.11 %
@@ -313,6 +313,7 @@ Baseline Accuracy : 63%
 
 - [X] Read this README.md
 - [ ] Download the survey.csv file into your working directory
-- [ ] Download the aquire.py, prepare.py, wrangle.py and Tech_Blues_Final.ipynb files into your working directory
+- [ ] Download the aquire.py, prepare.py, evaluate.py, wrangle.py and final_noteboook.ipynb files into your working directory
+- [ ] Install Python libraries
 - [ ] Clone this repo
-- [ ] Run the Tech_Blues_Final.ipynb notebook
+- [ ] Run the final_notebook.ipynb notebook
