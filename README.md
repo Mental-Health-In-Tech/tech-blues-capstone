@@ -9,20 +9,26 @@ Welcome to the README file for our Mental Health in Tech Capstone Project.
 
 Here, you will be able to find our project-planning though [Trello](https://trello.com/b/YET89ocX/mental-health-in-tech)
 
-# Table of Contents
+## Table of Contents
 A. [Project Overview](#poverview)
    1. [Project Description](#pdesc)
    1. [Project Deliverables](#pdeliv)
+
 B. [Project Summary](#psum)
    1. [Goals](#goals)
    1. [Hypotheses](#hypo)
    1. [Findings & Next Steps](#fns)
+   
 C. [Data Context](#dc)
    1. [Data Overview](#do)
    1. [Data Dictionary](#dd)
+   
 D. [Pipeline](#pipe)
+
 E. [Modules](#mod)
+
 F. [Project Reproduction](#pr)
+
 ## <a name="poverview"></a>A. Project Overview
 ---
 
