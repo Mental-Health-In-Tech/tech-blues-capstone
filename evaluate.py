@@ -95,6 +95,8 @@ def graph_importances(data, importances, std):
     fig, ax = plt.subplots()
     # Use std for errorbars, place each feautre importance on the chart
     forest_importances.plot.bar(yerr=std, ax=ax)
+    ax.tick_params(axis='x', labelsize=20)
+    ax.tick_params(axis='y', labelsize=20, pad = 5)
     ax.set_title("Feature importances using MDI")
     ax.set_ylabel("Mean decrease in impurity")
     return fig.tight_layout()
