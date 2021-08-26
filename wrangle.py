@@ -142,6 +142,7 @@ def prep_the_strings(df):
     '''
     This function preps the mental health data through the use of a number of functions.
     '''
+    # run the string prep functions 
     df = convert_lower(df)
     df = to_datetime(df)
     df = drop_age_outliers(df)
@@ -162,7 +163,7 @@ def prep_encode(df):
     '''
     This function encodes the mental data into numeric values through a number of functions.
     '''
-    
+    # run the encoding functions
     df = encode_yes_no_dont_know(df)
     df = encode_yes_no_columns(df)
     df = encode_no_employee(df)
@@ -226,6 +227,7 @@ def clean_male(df):
     '''
     This function takes the 'male' column and all its answers and converts them to 'male.
     '''
+    # fixed mispellings
     df.gender.replace(to_replace = ['M','Male','male','m','Male-ish',
                                     'maile','something kinda male?','Mal',
                                     'Male (CIS)', 'Make','Guy (-ish) ^_^',
@@ -239,6 +241,7 @@ def clean_female(df):
     '''
     This function takes the 'female' column and all its amswers and converts them to 'female'.
     '''
+    # fixed mispellings 
     df.gender.replace(to_replace = ['Female','female','Femake','Female ',
                                        'cis-female/femme','Woman','f','woman',
                                        'femail','Female (cis)','Cis Female','F'], value = 'female',
@@ -250,6 +253,7 @@ def clean_other(df):
     '''
     This function takes the 'other' column and all its answers and converts them to 'other'.
     '''
+    # rename non-male/female identifying people for 
     df.gender.replace(to_replace = ['Trans-female','queer/she/they','non-binary',
                                        'Nah','All','Enby','fluid','Genderqueer',
                                        'Androgyne','Agender','male leaning androgynous',
@@ -262,6 +266,7 @@ def remove_countries(df):
     '''
     This function removes uneeded countries.
     '''
+    # Kept only european and NAmerica to control for economic status and QOL
     countries = ['United States','Canada','Mexico','Switzerland',
                                    'Germany','Ireland','Poland','Austria','Italy',
                                    'Sweden','Spain','Norway','Czech Repulbic','Denmark',
