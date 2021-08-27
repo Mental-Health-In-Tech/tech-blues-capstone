@@ -60,8 +60,9 @@ Our goal is to be able to succesfully acquire the data, and follow through with 
 
 > Hypothesis 1: 'Supervisor'
 > - alpha : 0.05
-> - ${H_0}$: The mean workplace interference is the same for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
-> - ${H_a}$: The mean workplace interference is different for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
+> - ${H_0}$: The is no difference between workplace interference for those who feel comfortable speaking with their supervisor about mental health issues, and those who do not feel comfortable.
+> - ${H_a}$: The is a difference between workplace interference for those who feel comfortable speaking with their supervisor about mental health issues than those who do not feel comfortable communicating those issues with their supervisor.
+
 
 <details>
 <summary>View More</summary>
